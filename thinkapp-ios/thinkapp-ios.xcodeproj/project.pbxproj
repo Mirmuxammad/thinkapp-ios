@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */; };
 		E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E014D7EC28BE19380079FEFB /* AppDelegate.swift */; };
 		E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E014D7EE28BE19380079FEFB /* SceneDelegate.swift */; };
 		E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E014D7F728BE19390079FEFB /* LaunchScreen.storyboard */; };
@@ -19,9 +20,14 @@
 		E08B3CD828BE266200140D22 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E08B3CD528BE25D100140D22 /* Inter-Regular.otf */; };
 		E08B3CD928BE266400140D22 /* Syne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08B3CD328BE259F00140D22 /* Syne-Regular.ttf */; };
 		E08B3CDC28BE288400140D22 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B3CDB28BE288300140D22 /* UIColor+extension.swift */; };
+		E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B3CDF28BE39FC00140D22 /* LoginController.swift */; };
+		E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B3CE128BE3A0B00140D22 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.debug.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.release.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.release.xcconfig"; sourceTree = "<group>"; };
 		E014D7E928BE19380079FEFB /* thinkapp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thinkapp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E014D7EC28BE19380079FEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E014D7EE28BE19380079FEFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		E08B3CD428BE25D100140D22 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
 		E08B3CD528BE25D100140D22 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		E08B3CDB28BE288300140D22 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		E08B3CDF28BE39FC00140D22 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		E08B3CE128BE3A0B00140D22 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +51,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390F337E3FC1D37FCBDCE574 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66C6C017E50F131BE603031C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */,
+				BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E014D7E028BE19380079FEFB = {
 			isa = PBXGroup;
 			children = (
 				E014D7EB28BE19380079FEFB /* thinkapp-ios */,
 				E014D7EA28BE19380079FEFB /* Products */,
+				66C6C017E50F131BE603031C /* Pods */,
+				390F337E3FC1D37FCBDCE574 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +97,7 @@
 		E014D7EB28BE19380079FEFB /* thinkapp-ios */ = {
 			isa = PBXGroup;
 			children = (
+				E08B3CDD28BE39B800140D22 /* ViewControllers */,
 				E08B3CDA28BE285D00140D22 /* Extension */,
 				E014D80028BE19850079FEFB /* Base */,
 			);
@@ -109,6 +139,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E08B3CDD28BE39B800140D22 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E08B3CDE28BE39D100140D22 /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E08B3CDE28BE39D100140D22 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E08B3CDF28BE39FC00140D22 /* LoginController.swift */,
+				E08B3CE128BE3A0B00140D22 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E014D7FD28BE19390079FEFB /* Build configuration list for PBXNativeTarget "thinkapp-ios" */;
 			buildPhases = (
+				90342E536321395CAD1647DF /* [CP] Check Pods Manifest.lock */,
 				E014D7E528BE19380079FEFB /* Sources */,
 				E014D7E628BE19380079FEFB /* Frameworks */,
 				E014D7E728BE19380079FEFB /* Resources */,
+				1D656A89F4F255D2E5F86EFA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,6 +227,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1D656A89F4F255D2E5F86EFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90342E536321395CAD1647DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-thinkapp-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E014D7E528BE19380079FEFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -189,6 +280,8 @@
 				E08B3CDC28BE288400140D22 /* UIColor+extension.swift in Sources */,
 				E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */,
 				E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */,
+				E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */,
+				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +415,7 @@
 		};
 		E014D7FE28BE19390079FEFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -348,6 +442,7 @@
 		};
 		E014D7FF28BE19390079FEFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

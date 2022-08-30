@@ -27,7 +27,7 @@ class AppCoordinator: NSObject {
     private func startScreenFlow() {
         let navController = UINavigationController()
         router = MainRouter(navigationController: navController)
-        
+        router?.pushLogin()
         self.window.rootViewController = navController
         self.window.makeKeyAndVisible()
     }

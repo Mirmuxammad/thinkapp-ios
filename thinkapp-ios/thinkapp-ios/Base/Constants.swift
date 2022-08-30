@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-enum BaseColorHex {
+enum BaseColor {
     case black
     case gray
     case yellow

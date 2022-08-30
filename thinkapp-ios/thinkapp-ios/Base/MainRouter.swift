@@ -22,13 +22,18 @@ class MainRouter: NSObject {
         self.navigationController = navigationController
     }
     
+    func pushLogin() {
+        let vc = LoginController()
+        pushViewController(vc: vc)
+    }
     
-    func pushViewController(vc: Routable) {
+    
+    private func pushViewController(vc: Routable) {
         vc.router = self
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func presentViewController(vc: Routable, animated: Bool) {
+    private func presentViewController(vc: Routable, animated: Bool) {
         vc.router = self
         vc.modalPresentationStyle = .overFullScreen
         navigationController.present(vc, animated: true)
