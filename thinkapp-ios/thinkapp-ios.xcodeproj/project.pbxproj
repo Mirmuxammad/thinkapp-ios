@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */; };
+		E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E528C0BA7400D1214A /* WelcomeController.swift */; };
+		E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E728C0BA8400D1214A /* WelcomeView.swift */; };
 		E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E014D7EC28BE19380079FEFB /* AppDelegate.swift */; };
 		E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E014D7EE28BE19380079FEFB /* SceneDelegate.swift */; };
 		E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E014D7F728BE19390079FEFB /* LaunchScreen.storyboard */; };
@@ -28,6 +30,8 @@
 		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.debug.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.release.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.release.xcconfig"; sourceTree = "<group>"; };
+		E00D78E528C0BA7400D1214A /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		E00D78E728C0BA8400D1214A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E014D7E928BE19380079FEFB /* thinkapp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thinkapp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E014D7EC28BE19380079FEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E014D7EE28BE19380079FEFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +76,6 @@
 				64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */,
 				BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +145,7 @@
 		E08B3CDD28BE39B800140D22 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E08B3CF128C0BA1900140D22 /* Welcome */,
 				E08B3CDE28BE39D100140D22 /* Login */,
 			);
 			path = ViewControllers;
@@ -154,6 +158,15 @@
 				E08B3CE128BE3A0B00140D22 /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		E08B3CF128C0BA1900140D22 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				E00D78E528C0BA7400D1214A /* WelcomeController.swift */,
+				E00D78E728C0BA8400D1214A /* WelcomeView.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +292,9 @@
 				E08B3CCD28BE1A3400140D22 /* MainRouter.swift in Sources */,
 				E08B3CDC28BE288400140D22 /* UIColor+extension.swift in Sources */,
 				E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */,
+				E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */,
 				E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */,
+				E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */,
 				E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
 			);

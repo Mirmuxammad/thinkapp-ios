@@ -12,7 +12,7 @@ class LoginView: UIView {
     
     private let topColorView: UIView = {
         let view = UIView()
-        view.backgroundColor = BaseColor.black.path
+        view.backgroundColor = BaseColor.black
         return view
     }()
 
@@ -25,16 +25,16 @@ class LoginView: UIView {
     
     private let topLable: UILabel = {
         let lable = UILabel()
-        lable.textColor = BaseColor.gray.path
-        lable.font = BaseFont.syneBolt(24).path
+        lable.textColor = BaseColor.gray
+        lable.font = BaseFont.syneBolt(with: 24)
         lable.text = "Think"
         return lable
     }()
     
     private let centrLable: UILabel = {
         let lable = UILabel()
-        lable.textColor = BaseColor.black.path
-        lable.font = BaseFont.syneBolt(22).path
+        lable.textColor = BaseColor.black
+        lable.font = BaseFont.syneBolt(with: 22)
         lable.text = "Want to Join Us?"
         return lable
     }()
@@ -48,8 +48,8 @@ class LoginView: UIView {
     
     private let bottomLable: UILabel = {
         let lable = UILabel()
-        lable.textColor = BaseColor.black.path
-        lable.font = BaseFont.syneBolt(18).path
+        lable.textColor = BaseColor.black
+        lable.font = BaseFont.syneBolt(with: 18)
         lable.text = "2165 person think right now!"
         return lable
     }()
@@ -57,11 +57,11 @@ class LoginView: UIView {
     private let loginWithAppleButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.borderWidth = 5
-        button.layer.borderColor = BaseColor.black.path.cgColor
+        button.layer.borderColor = BaseColor.black.cgColor
         button.setTitle("Join with apple", for: .normal)
         button.setImage(UIImage(systemName: "applelogo"), for: .normal)
-        button.tintColor = BaseColor.black.path
-        button.titleLabel?.font = BaseFont.syneBolt(14).path
+        button.tintColor = BaseColor.black
+        button.titleLabel?.font = BaseFont.syneBolt(with: 14)
         button.contentHorizontalAlignment = .center
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 16)
         return button
@@ -71,20 +71,26 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Join with mail", for: .normal)
         button.setImage(UIImage(systemName: "envelope"), for: .normal)
-        button.tintColor = BaseColor.black.path
-        button.titleLabel?.font = BaseFont.syneBolt(11).path
+        button.tintColor = BaseColor.black
+        button.titleLabel?.font = BaseFont.syneBolt(with: 14)
         button.contentHorizontalAlignment = .center
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 16)
         return button
     }()
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = BaseColor.gray.path
+        backgroundColor = BaseColor.gray
         addViews()
         addConstraints()
-        print(frame)
+    }
+    
+    func loginWithMailAddTarget(target: Any, action: Selector) {
+        loginWithMailButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func loginWithAppleAddTarget(target: Any, action: Selector) {
+        loginWithAppleButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     private func addViews() {

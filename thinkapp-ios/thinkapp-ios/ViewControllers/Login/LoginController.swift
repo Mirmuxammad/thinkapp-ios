@@ -15,12 +15,23 @@ class LoginController: UIViewController, Routable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        baseView.loginWithMailAddTarget(target: self, action: #selector(loginWithMail))
+        baseView.loginWithAppleAddTarget(target: self, action: #selector(loginWithApple))
     }
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         baseView.frame = view.bounds
         view.addSubview(baseView)
+    }
+    
+    @objc private func loginWithMail() {
+        router?.pushWelcome()
+        print("open email")
+    }
+    
+    @objc private func loginWithApple() {
+        print("open apple ID")
     }
 
 }

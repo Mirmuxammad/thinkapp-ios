@@ -22,6 +22,11 @@ class MainRouter: NSObject {
         self.navigationController = navigationController
     }
     
+    func pushWelcome() {
+        let vc = WelcomeController()
+        pushViewController(vc: vc)
+    }
+    
     func pushLogin() {
         let vc = LoginController()
         pushViewController(vc: vc)
