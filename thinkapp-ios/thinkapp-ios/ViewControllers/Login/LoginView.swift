@@ -9,6 +9,12 @@ import UIKit
 import SnapKit
 
 class LoginView: UIView {
+    
+    private let topColorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = BaseColor.black.path
+        return view
+    }()
 
     private let topImageView: UIImageView = {
         let imageView = UIImageView()
@@ -78,9 +84,11 @@ class LoginView: UIView {
         backgroundColor = BaseColor.gray.path
         addViews()
         addConstraints()
+        print(frame)
     }
     
     private func addViews() {
+        addSubview(topColorView)
         addSubview(topImageView)
         addSubview(topLable)
         addSubview(centrLable)
@@ -91,17 +99,21 @@ class LoginView: UIView {
     }
     
     private func addConstraints() {
+        topColorView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(topImageView.snp.top)
+        }
         
         topImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview()
-            make.height.equalTo(self.frame.height / 3.8)
+            make.height.equalTo(self.frame.height / 4)
         }
         
         topLable.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide)
-            make.right.equalTo(self.snp.centerX).offset(4)
+            make.top.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.right.equalTo(self.snp.centerX).offset(16)
         }
         
         centrLable.snp.makeConstraints { make in
@@ -109,28 +121,28 @@ class LoginView: UIView {
             make.centerX.equalToSuperview()
         }
         
-        centrImageView.snp.makeConstraints { make in
-            make.top.equalTo(centrLable.snp.bottom).offset(36)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(self.frame.width / 2)
-            make.height.equalTo(self.frame.height / 3)
-        }
         
         bottomLable.snp.makeConstraints { make in
-            make.top.equalTo(centrImageView.snp.bottom).offset(36)
             make.centerX.equalToSuperview().offset(-28)
+            make.bottom.equalTo(loginWithAppleButton.snp.top).offset(-36)
         }
         
         loginWithAppleButton.snp.makeConstraints { make in
-            make.top.equalTo(bottomLable.snp.bottom).offset(44)
             make.centerX.equalToSuperview()
             make.width.equalTo(self.frame.width / 2)
             make.height.equalTo(self.frame.width / 8)
         }
         
         loginWithMailButton.snp.makeConstraints { make in
-            make.top.equalTo(loginWithAppleButton.snp.bottom).offset(24)
+            make.bottom.equalToSuperview().offset(-80)
             make.centerX.equalToSuperview()
+            make.top.equalTo(loginWithAppleButton.snp.bottom).offset(26)
+        }
+        
+        centrImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(centrLable.snp.bottom).offset(16)
+            make.bottom.equalTo(bottomLable.snp.top).offset(30)
         }
         
     }
