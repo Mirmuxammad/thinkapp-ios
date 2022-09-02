@@ -25,6 +25,7 @@ class LoginController: UIViewController, Routable {
         view.addSubview(baseView)
     }
     
+    
     @objc private func loginWithMail() {
         router?.pushWelcome()
         print("open email")

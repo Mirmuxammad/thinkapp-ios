@@ -15,6 +15,7 @@ class WelcomeController: UIViewController, Routable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        baseView.getStartAddTarget(target: self, action: #selector(getStart))
     }
 
     override func viewWillLayoutSubviews() {
@@ -22,5 +23,8 @@ class WelcomeController: UIViewController, Routable {
         baseView.frame = view.bounds
         view.addSubview(baseView)
     }
-
+    
+    @objc private func getStart() {
+        router?.pushMainMap()
+    }
 }

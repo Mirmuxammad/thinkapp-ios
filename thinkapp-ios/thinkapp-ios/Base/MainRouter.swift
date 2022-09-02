@@ -22,6 +22,11 @@ class MainRouter: NSObject {
         self.navigationController = navigationController
     }
     
+    func pushMainMap() {
+        let vc = MainMapController()
+        pushViewController(vc: vc)
+    }
+    
     func pushWelcome() {
         let vc = WelcomeController()
         pushViewController(vc: vc)

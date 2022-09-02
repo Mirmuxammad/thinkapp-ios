@@ -10,6 +10,9 @@
 		DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */; };
 		E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E528C0BA7400D1214A /* WelcomeController.swift */; };
 		E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E728C0BA8400D1214A /* WelcomeView.swift */; };
+		E00D78EB28C0E7D600D1214A /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78EA28C0E7D600D1214A /* MainMapView.swift */; };
+		E00D78ED28C0E7E400D1214A /* MainMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78EC28C0E7E400D1214A /* MainMapController.swift */; };
+		E00D78EF28C1034700D1214A /* AdventureMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78EE28C1034700D1214A /* AdventureMapOverlay.swift */; };
 		E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E014D7EC28BE19380079FEFB /* AppDelegate.swift */; };
 		E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E014D7EE28BE19380079FEFB /* SceneDelegate.swift */; };
 		E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E014D7F728BE19390079FEFB /* LaunchScreen.storyboard */; };
@@ -32,6 +35,9 @@
 		BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.release.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.release.xcconfig"; sourceTree = "<group>"; };
 		E00D78E528C0BA7400D1214A /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		E00D78E728C0BA8400D1214A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		E00D78EA28C0E7D600D1214A /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
+		E00D78EC28C0E7E400D1214A /* MainMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapController.swift; sourceTree = "<group>"; };
+		E00D78EE28C1034700D1214A /* AdventureMapOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureMapOverlay.swift; sourceTree = "<group>"; };
 		E014D7E928BE19380079FEFB /* thinkapp-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "thinkapp-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E014D7EC28BE19380079FEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E014D7EE28BE19380079FEFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +83,16 @@
 				BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E00D78E928C0E6ED00D1214A /* MainMap */ = {
+			isa = PBXGroup;
+			children = (
+				E00D78EA28C0E7D600D1214A /* MainMapView.swift */,
+				E00D78EC28C0E7E400D1214A /* MainMapController.swift */,
+				E00D78EE28C1034700D1214A /* AdventureMapOverlay.swift */,
+			);
+			path = MainMap;
 			sourceTree = "<group>";
 		};
 		E014D7E028BE19380079FEFB = {
@@ -145,6 +161,7 @@
 		E08B3CDD28BE39B800140D22 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E00D78E928C0E6ED00D1214A /* MainMap */,
 				E08B3CF128C0BA1900140D22 /* Welcome */,
 				E08B3CDE28BE39D100140D22 /* Login */,
 			);
@@ -289,12 +306,15 @@
 			files = (
 				E08B3CCF28BE1BF300140D22 /* Constants.swift in Sources */,
 				E08B3CCC28BE1A3400140D22 /* AppCoordinator.swift in Sources */,
+				E00D78EB28C0E7D600D1214A /* MainMapView.swift in Sources */,
 				E08B3CCD28BE1A3400140D22 /* MainRouter.swift in Sources */,
 				E08B3CDC28BE288400140D22 /* UIColor+extension.swift in Sources */,
 				E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */,
+				E00D78EF28C1034700D1214A /* AdventureMapOverlay.swift in Sources */,
 				E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */,
 				E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */,
 				E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */,
+				E00D78ED28C0E7E400D1214A /* MainMapController.swift in Sources */,
 				E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
 			);
