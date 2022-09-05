@@ -43,7 +43,7 @@ class MainMapController: UIViewController, Routable {
         if CLLocationManager.locationServicesEnabled() {
             setupLocManager()
             checkAuthLoc()
-            setupTileRenderer()
+//            setupTileRenderer()
         } else {
             showAlertLocation(title: "Your geolocation service is disabled", message: "Do you want to turn it on?", UrlString: "App-Prefs:root=LOCATION_SERVICES")
         }
