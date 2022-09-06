@@ -69,6 +69,10 @@ class MainMapView: UIView {
         addConstraints()
     }
     
+    func addMarkAddTarget(target: Any, action: Selector) {
+        addMarkButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
     func backAddTarget(target: Any, action: Selector) {
         backButton.addTarget(target, action: action, for: .touchUpInside)
     }

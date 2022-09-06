@@ -22,6 +22,12 @@ class MainRouter: NSObject {
         self.navigationController = navigationController
     }
         
+    func pushAddMark() {
+        let storyBoard = UIStoryboard(name: "AddMark", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "AddMark")
+        self.navigationController.pushViewController(vc, animated: true)
+    }
+    
     func pushFilters() {
         let storyBoard = UIStoryboard(name: "Filters", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "Filters")

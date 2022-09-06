@@ -16,7 +16,6 @@ class FiltersViewController: UITableViewController, Routable {
     }
  
     @IBAction func pressDoneButton(_ sender: UIButton) {
-        print("Done")
         self.navigationController?.popViewController(animated: true)
     }
 }

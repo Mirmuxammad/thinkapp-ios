@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43433C9A28C7926B00B568BA /* AddMarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43433C9928C7926B00B568BA /* AddMarkController.swift */; };
 		43602A8A28C69C5D0084091B /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43602A8928C69C5D0084091B /* FiltersViewController.swift */; };
 		43602A8C28C69D7E0084091B /* Filters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43602A8B28C69D7E0084091B /* Filters.storyboard */; };
+		43F1537028C7C06A00B70344 /* AddMark.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43433C9B28C7929400B568BA /* AddMark.storyboard */; };
 		DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */; };
 		E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E528C0BA7400D1214A /* WelcomeController.swift */; };
 		E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E728C0BA8400D1214A /* WelcomeView.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43433C9928C7926B00B568BA /* AddMarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkController.swift; sourceTree = "<group>"; };
+		43433C9B28C7929400B568BA /* AddMark.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMark.storyboard; sourceTree = "<group>"; };
 		43602A8928C69C5D0084091B /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		43602A8B28C69D7E0084091B /* Filters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filters.storyboard; sourceTree = "<group>"; };
 		64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.debug.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 				006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43433C9828C7921A00B568BA /* AddMark */ = {
+			isa = PBXGroup;
+			children = (
+				43433C9928C7926B00B568BA /* AddMarkController.swift */,
+				43433C9B28C7929400B568BA /* AddMark.storyboard */,
+			);
+			path = AddMark;
 			sourceTree = "<group>";
 		};
 		43602A8628C63BA50084091B /* Filters */ = {
@@ -174,6 +187,7 @@
 		E08B3CDD28BE39B800140D22 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				43433C9828C7921A00B568BA /* AddMark */,
 				43602A8628C63BA50084091B /* Filters */,
 				E00D78E928C0E6ED00D1214A /* MainMap */,
 				E08B3CF128C0BA1900140D22 /* Welcome */,
@@ -265,6 +279,7 @@
 				E08B3CD628BE265E00140D22 /* Syne-Bold.ttf in Resources */,
 				E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */,
 				E08B3CD928BE266400140D22 /* Syne-Regular.ttf in Resources */,
+				43F1537028C7C06A00B70344 /* AddMark.storyboard in Resources */,
 				43602A8C28C69D7E0084091B /* Filters.storyboard in Resources */,
 				E08B3CD728BE266000140D22 /* Inter-Medium.otf in Resources */,
 			);
@@ -332,6 +347,7 @@
 				E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */,
 				E00D78ED28C0E7E400D1214A /* MainMapController.swift in Sources */,
 				E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */,
+				43433C9A28C7926B00B568BA /* AddMarkController.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

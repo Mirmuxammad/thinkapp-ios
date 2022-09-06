@@ -22,6 +22,7 @@ class MainMapController: UIViewController, Routable {
         super.viewDidLoad()
         baseView.backAddTarget(target: self, action: #selector(back))
         baseView.filtersAddTarget(target: self, action: #selector(getFilters))
+        baseView.addMarkAddTarget(target: self, action: #selector(addMark))
         baseView.mapDelegate(delegate: self)
     }
 
@@ -33,7 +34,7 @@ class MainMapController: UIViewController, Routable {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkLocationEnebled()
+        checkLocationEnabled()
     }
     
     @objc private func getFilters() {
@@ -44,7 +45,11 @@ class MainMapController: UIViewController, Routable {
         router?.back()
     }
     
-    private func checkLocationEnebled() {
+    @objc private func addMark() {
+        router?.pushAddMark()
+    }
+    
+    private func checkLocationEnabled() {
         if CLLocationManager.locationServicesEnabled() {
             setupLocManager()
             checkAuthLoc()
