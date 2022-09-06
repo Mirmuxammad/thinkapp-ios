@@ -20,7 +20,8 @@ class MainMapController: UIViewController, Routable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        baseView.backAddTarger(target: self, action: #selector(back))
+        baseView.backAddTarget(target: self, action: #selector(back))
+        baseView.filtersAddTarget(target: self, action: #selector(getFilters))
         baseView.mapDelegate(delegate: self)
     }
 
@@ -33,6 +34,10 @@ class MainMapController: UIViewController, Routable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationEnebled()
+    }
+    
+    @objc private func getFilters() {
+        router?.pushFilters()
     }
     
     @objc private func back() {

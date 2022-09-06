@@ -21,6 +21,12 @@ class MainRouter: NSObject {
         navigationController.setNavigationBarHidden(true, animated: false)
         self.navigationController = navigationController
     }
+        
+    func pushFilters() {
+        let storyBoard = UIStoryboard(name: "Filters", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "Filters")
+        self.navigationController.pushViewController(vc, animated: true)
+    }
     
     func pushMainMap() {
         let vc = MainMapController()

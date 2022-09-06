@@ -69,8 +69,12 @@ class MainMapView: UIView {
         addConstraints()
     }
     
-    func backAddTarger(target: Any, action: Selector) {
+    func backAddTarget(target: Any, action: Selector) {
         backButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func filtersAddTarget(target: Any, action: Selector) {
+        filterButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     func mapDelegate(delegate: MKMapViewDelegate) {
