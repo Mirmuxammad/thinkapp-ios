@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		43433C9A28C7926B00B568BA /* AddMarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43433C9928C7926B00B568BA /* AddMarkController.swift */; };
-		43602A8A28C69C5D0084091B /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43602A8928C69C5D0084091B /* FiltersViewController.swift */; };
-		43602A8C28C69D7E0084091B /* Filters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43602A8B28C69D7E0084091B /* Filters.storyboard */; };
+		4354660F28CAFD020084AAA4 /* FiltersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354660E28CAFD020084AAA4 /* FiltersTableView.swift */; };
+		4354661128CAFD330084AAA4 /* GenderPreferenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661028CAFD330084AAA4 /* GenderPreferenceCell.swift */; };
+		4354661328CAFD550084AAA4 /* MaxDistanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661228CAFD550084AAA4 /* MaxDistanceCell.swift */; };
+		4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661428CAFD880084AAA4 /* AgeRangeCell.swift */; };
+		4354661728CAFDAC0084AAA4 /* DoneButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661628CAFDAC0084AAA4 /* DoneButtonCell.swift */; };
+		4354661928CAFE4F0084AAA4 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661828CAFE4F0084AAA4 /* FiltersViewController.swift */; };
 		43F1537028C7C06A00B70344 /* AddMark.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43433C9B28C7929400B568BA /* AddMark.storyboard */; };
 		DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */; };
 		E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E528C0BA7400D1214A /* WelcomeController.swift */; };
@@ -37,8 +41,12 @@
 		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43433C9928C7926B00B568BA /* AddMarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkController.swift; sourceTree = "<group>"; };
 		43433C9B28C7929400B568BA /* AddMark.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMark.storyboard; sourceTree = "<group>"; };
-		43602A8928C69C5D0084091B /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
-		43602A8B28C69D7E0084091B /* Filters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filters.storyboard; sourceTree = "<group>"; };
+		4354660E28CAFD020084AAA4 /* FiltersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableView.swift; sourceTree = "<group>"; };
+		4354661028CAFD330084AAA4 /* GenderPreferenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPreferenceCell.swift; sourceTree = "<group>"; };
+		4354661228CAFD550084AAA4 /* MaxDistanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxDistanceCell.swift; sourceTree = "<group>"; };
+		4354661428CAFD880084AAA4 /* AgeRangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRangeCell.swift; sourceTree = "<group>"; };
+		4354661628CAFDAC0084AAA4 /* DoneButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonCell.swift; sourceTree = "<group>"; };
+		4354661828CAFE4F0084AAA4 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.debug.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.release.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.release.xcconfig"; sourceTree = "<group>"; };
 		E00D78E528C0BA7400D1214A /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -96,8 +104,12 @@
 		43602A8628C63BA50084091B /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				43602A8928C69C5D0084091B /* FiltersViewController.swift */,
-				43602A8B28C69D7E0084091B /* Filters.storyboard */,
+				4354661828CAFE4F0084AAA4 /* FiltersViewController.swift */,
+				4354660E28CAFD020084AAA4 /* FiltersTableView.swift */,
+				4354661028CAFD330084AAA4 /* GenderPreferenceCell.swift */,
+				4354661228CAFD550084AAA4 /* MaxDistanceCell.swift */,
+				4354661428CAFD880084AAA4 /* AgeRangeCell.swift */,
+				4354661628CAFDAC0084AAA4 /* DoneButtonCell.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -280,7 +292,6 @@
 				E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */,
 				E08B3CD928BE266400140D22 /* Syne-Regular.ttf in Resources */,
 				43F1537028C7C06A00B70344 /* AddMark.storyboard in Resources */,
-				43602A8C28C69D7E0084091B /* Filters.storyboard in Resources */,
 				E08B3CD728BE266000140D22 /* Inter-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,15 +349,20 @@
 				E08B3CCC28BE1A3400140D22 /* AppCoordinator.swift in Sources */,
 				E00D78EB28C0E7D600D1214A /* MainMapView.swift in Sources */,
 				E08B3CCD28BE1A3400140D22 /* MainRouter.swift in Sources */,
-				43602A8A28C69C5D0084091B /* FiltersViewController.swift in Sources */,
+				4354661728CAFDAC0084AAA4 /* DoneButtonCell.swift in Sources */,
 				E08B3CDC28BE288400140D22 /* UIColor+extension.swift in Sources */,
 				E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */,
 				E00D78EF28C1034700D1214A /* AdventureMapOverlay.swift in Sources */,
 				E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */,
+				4354661328CAFD550084AAA4 /* MaxDistanceCell.swift in Sources */,
+				4354661128CAFD330084AAA4 /* GenderPreferenceCell.swift in Sources */,
 				E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */,
 				E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */,
 				E00D78ED28C0E7E400D1214A /* MainMapController.swift in Sources */,
+				4354661928CAFE4F0084AAA4 /* FiltersViewController.swift in Sources */,
 				E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */,
+				4354660F28CAFD020084AAA4 /* FiltersTableView.swift in Sources */,
+				4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */,
 				43433C9A28C7926B00B568BA /* AddMarkController.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
 			);

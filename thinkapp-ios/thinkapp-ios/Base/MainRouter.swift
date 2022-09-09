@@ -29,9 +29,8 @@ class MainRouter: NSObject {
     }
     
     func pushFilters() {
-        let storyBoard = UIStoryboard(name: "Filters", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "Filters")
-        self.navigationController.pushViewController(vc, animated: true)
+        let vc = FiltersViewController()
+        pushViewController(vc: vc)
     }
     
     func pushMainMap() {
