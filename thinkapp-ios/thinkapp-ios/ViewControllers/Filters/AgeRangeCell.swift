@@ -14,34 +14,37 @@ class AgeRangeCell: UITableViewCell {
     static let identifier = "AgeRangeCell"
     
     // MARK: - Private Properties
-    private let ageRangeLabel: UILabel = {
+    let ageRangeLabel: UILabel = {
         let label = UILabel()
         label.text = "Age Range"
-        label.font = UIFont(name: "Inter-Regular", size: 15)
+        label.font = UIFont(name: "Inter-Medium", size: 15)
         label.textColor = UIColor(hex: "000000", alpha: 0.62)
         label.textAlignment = .left
         return label
     }()
     
-    private let ageRangeButton: UIButton = {
+    let ageRangeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("25-32 Age", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Inter-Regular", size: 15)
+        button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
         button.setTitleColor(UIColor(hex: "000000"), for: .normal)
+        button.contentHorizontalAlignment = .right
         return button
     }()
     
-    private let topVectorImageView: UIImageView = {
+    private let ageRangeVectorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "topVector")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private let ageRangeSlider: RangeUISlider = {
+    let ageRangeSlider: RangeUISlider = {
         let rangeSlider = RangeUISlider()
+        rangeSlider.accessibilityIdentifier = "ageRangeSlider"
         rangeSlider.translatesAutoresizingMaskIntoConstraints = false
-//        rangeSlider.delegate = self
+        rangeSlider.stepIncrement = 1
+        
         rangeSlider.defaultValueLeftKnob = 25
         rangeSlider.defaultValueRightKnob = 32
         
@@ -82,33 +85,41 @@ class AgeRangeCell: UITableViewCell {
     
     // MARK: - Private Methods
     private func addViews() {
-        addSubview(ageRangeLabel)
-        addSubview(ageRangeButton)
-        addSubview(topVectorImageView)
-        addSubview(ageRangeSlider)
+        contentView.addSubview(ageRangeLabel)
+        contentView.addSubview(ageRangeButton)
+        contentView.addSubview(ageRangeVectorImageView)
+        contentView.addSubview(ageRangeSlider)
     }
     
     private func addConstraints() {
         ageRangeLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(29)
             make.left.equalToSuperview().offset(35)
+            make.width.equalTo(78)
+            make.height.equalTo(18)
+            make.bottom.equalTo(ageRangeSlider.snp.top).offset(-27)
         }
         
         ageRangeButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(29)
             make.right.equalToSuperview().offset(-51)
             make.height.equalTo(18)
+            make.bottom.equalTo(ageRangeSlider.snp.top).offset(-27)
         }
         
-        topVectorImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(34)
-            make.right.equalToSuperview().offset(-29)
+        ageRangeVectorImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(28)
+            make.right.equalToSuperview().offset(-26)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+            make.bottom.equalTo(ageRangeSlider.snp.top).offset(-26)
         }
         
         ageRangeSlider.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(79)
             make.left.equalToSuperview().offset(35)
             make.right.equalToSuperview().offset(-28)
+            make.height.equalTo(17)
+            make.bottom.equalToSuperview().offset(-28)
         }
     }    
 }

@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43433C9A28C7926B00B568BA /* AddMarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43433C9928C7926B00B568BA /* AddMarkController.swift */; };
+		43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6828CE765100122DE5 /* FiltersCellType.swift */; };
+		43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */; };
+		43457B6D28CE7E3700122DE5 /* AddMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */; };
+		43457B6F28CE80D200122DE5 /* AddMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6E28CE80D200122DE5 /* AddMarkCell.swift */; };
+		43457B7128CE890A00122DE5 /* AddMarkCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B7028CE890A00122DE5 /* AddMarkCellType.swift */; };
+		43457B7328CF003100122DE5 /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B7228CF003100122DE5 /* MyMessageCell.swift */; };
 		4354660F28CAFD020084AAA4 /* FiltersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354660E28CAFD020084AAA4 /* FiltersTableView.swift */; };
 		4354661128CAFD330084AAA4 /* GenderPreferenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661028CAFD330084AAA4 /* GenderPreferenceCell.swift */; };
 		4354661328CAFD550084AAA4 /* MaxDistanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661228CAFD550084AAA4 /* MaxDistanceCell.swift */; };
 		4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661428CAFD880084AAA4 /* AgeRangeCell.swift */; };
 		4354661728CAFDAC0084AAA4 /* DoneButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661628CAFDAC0084AAA4 /* DoneButtonCell.swift */; };
 		4354661928CAFE4F0084AAA4 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661828CAFE4F0084AAA4 /* FiltersViewController.swift */; };
-		43F1537028C7C06A00B70344 /* AddMark.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43433C9B28C7929400B568BA /* AddMark.storyboard */; };
 		DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */; };
 		E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E528C0BA7400D1214A /* WelcomeController.swift */; };
 		E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E728C0BA8400D1214A /* WelcomeView.swift */; };
@@ -39,8 +43,12 @@
 
 /* Begin PBXFileReference section */
 		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43433C9928C7926B00B568BA /* AddMarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkController.swift; sourceTree = "<group>"; };
-		43433C9B28C7929400B568BA /* AddMark.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMark.storyboard; sourceTree = "<group>"; };
+		43457B6828CE765100122DE5 /* FiltersCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersCellType.swift; sourceTree = "<group>"; };
+		43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkTableView.swift; sourceTree = "<group>"; };
+		43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkViewController.swift; sourceTree = "<group>"; };
+		43457B6E28CE80D200122DE5 /* AddMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkCell.swift; sourceTree = "<group>"; };
+		43457B7028CE890A00122DE5 /* AddMarkCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkCellType.swift; sourceTree = "<group>"; };
+		43457B7228CF003100122DE5 /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
 		4354660E28CAFD020084AAA4 /* FiltersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableView.swift; sourceTree = "<group>"; };
 		4354661028CAFD330084AAA4 /* GenderPreferenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPreferenceCell.swift; sourceTree = "<group>"; };
 		4354661228CAFD550084AAA4 /* MaxDistanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxDistanceCell.swift; sourceTree = "<group>"; };
@@ -95,8 +103,11 @@
 		43433C9828C7921A00B568BA /* AddMark */ = {
 			isa = PBXGroup;
 			children = (
-				43433C9928C7926B00B568BA /* AddMarkController.swift */,
-				43433C9B28C7929400B568BA /* AddMark.storyboard */,
+				43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */,
+				43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */,
+				43457B6E28CE80D200122DE5 /* AddMarkCell.swift */,
+				43457B7228CF003100122DE5 /* MyMessageCell.swift */,
+				43457B7028CE890A00122DE5 /* AddMarkCellType.swift */,
 			);
 			path = AddMark;
 			sourceTree = "<group>";
@@ -110,6 +121,7 @@
 				4354661228CAFD550084AAA4 /* MaxDistanceCell.swift */,
 				4354661428CAFD880084AAA4 /* AgeRangeCell.swift */,
 				4354661628CAFDAC0084AAA4 /* DoneButtonCell.swift */,
+				43457B6828CE765100122DE5 /* FiltersCellType.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -126,8 +138,8 @@
 		E00D78E928C0E6ED00D1214A /* MainMap */ = {
 			isa = PBXGroup;
 			children = (
-				E00D78EA28C0E7D600D1214A /* MainMapView.swift */,
 				E00D78EC28C0E7E400D1214A /* MainMapController.swift */,
+				E00D78EA28C0E7D600D1214A /* MainMapView.swift */,
 				E00D78EE28C1034700D1214A /* AdventureMapOverlay.swift */,
 			);
 			path = MainMap;
@@ -291,7 +303,6 @@
 				E08B3CD628BE265E00140D22 /* Syne-Bold.ttf in Resources */,
 				E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */,
 				E08B3CD928BE266400140D22 /* Syne-Regular.ttf in Resources */,
-				43F1537028C7C06A00B70344 /* AddMark.storyboard in Resources */,
 				E08B3CD728BE266000140D22 /* Inter-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,8 +358,11 @@
 			files = (
 				E08B3CCF28BE1BF300140D22 /* Constants.swift in Sources */,
 				E08B3CCC28BE1A3400140D22 /* AppCoordinator.swift in Sources */,
+				43457B7128CE890A00122DE5 /* AddMarkCellType.swift in Sources */,
 				E00D78EB28C0E7D600D1214A /* MainMapView.swift in Sources */,
 				E08B3CCD28BE1A3400140D22 /* MainRouter.swift in Sources */,
+				43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */,
+				43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */,
 				4354661728CAFDAC0084AAA4 /* DoneButtonCell.swift in Sources */,
 				E08B3CDC28BE288400140D22 /* UIColor+extension.swift in Sources */,
 				E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */,
@@ -359,11 +373,13 @@
 				E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */,
 				E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */,
 				E00D78ED28C0E7E400D1214A /* MainMapController.swift in Sources */,
+				43457B7328CF003100122DE5 /* MyMessageCell.swift in Sources */,
 				4354661928CAFE4F0084AAA4 /* FiltersViewController.swift in Sources */,
 				E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */,
+				43457B6D28CE7E3700122DE5 /* AddMarkViewController.swift in Sources */,
 				4354660F28CAFD020084AAA4 /* FiltersTableView.swift in Sources */,
 				4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */,
-				43433C9A28C7926B00B568BA /* AddMarkController.swift in Sources */,
+				43457B6F28CE80D200122DE5 /* AddMarkCell.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +526,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +536,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -537,6 +554,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +564,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

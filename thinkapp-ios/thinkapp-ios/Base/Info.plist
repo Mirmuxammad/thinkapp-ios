@@ -6,8 +6,8 @@
 	<array>
 		<string>Syne-Bold.ttf</string>
 		<string>Syne-Regular.ttf</string>
-		<string>Inter-Medium.ttf</string>
-		<string>Inter-Regular.ttf</string>
+		<string>Inter-Medium.otf</string>
+		<string>Inter-Regular.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

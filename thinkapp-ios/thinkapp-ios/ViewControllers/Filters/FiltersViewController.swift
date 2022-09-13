@@ -6,16 +6,33 @@
 //
 
 import UIKit
+import RangeUISlider
 
 class FiltersViewController: UIViewController, Routable {
     
+    // MARK: - Private Properties
     private let table: FiltersTableView = FiltersTableView()
+    private var dataSourceArray = [FiltersCellType]()
+    private weak var maxDistanceButton: UIButton?
+    private weak var ageRangeButton: UIButton?
     
+    // MARK: - Public Properties
     var router: MainRouter?
+    
+    // MARK: - Initializers
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        dataSourceArray = [.GenderPreference, .MaxDistance, .AgeRange, .DoneButton]
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerCells()
         conformProtocols()
     }
     
@@ -26,6 +43,13 @@ class FiltersViewController: UIViewController, Routable {
     }
     
     // MARK: - Private Methods
+    private func registerCells() {
+        table.tableView.register(GenderPreferenceCell.self, forCellReuseIdentifier: GenderPreferenceCell.identifier)
+        table.tableView.register(MaxDistanceCell.self, forCellReuseIdentifier: MaxDistanceCell.identifier)
+        table.tableView.register(AgeRangeCell.self, forCellReuseIdentifier: AgeRangeCell.identifier)
+        table.tableView.register(DoneButtonCell.self, forCellReuseIdentifier: DoneButtonCell.identifier)
+    }
+    
     private func conformProtocols() {
         table.tableView.delegate = self
         table.tableView.dataSource = self
@@ -36,44 +60,63 @@ class FiltersViewController: UIViewController, Routable {
 extension FiltersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return dataSourceArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
+        let typeCell = dataSourceArray[indexPath.row]
+        switch typeCell {            
+        case .GenderPreference:
             let genderPreferenceCell = tableView.dequeueReusableCell(withIdentifier: GenderPreferenceCell.identifier,
                                                                      for: indexPath) as! GenderPreferenceCell
             return genderPreferenceCell
-        case 1:
+        
+        case .MaxDistance:
             let maxDistanceCell = tableView.dequeueReusableCell(withIdentifier: MaxDistanceCell.identifier,
                                                                 for: indexPath) as! MaxDistanceCell
+            maxDistanceCell.maxDistanceSlider.delegate = self
+            maxDistanceButton = maxDistanceCell.maxDistanceButton
             return maxDistanceCell
-        case 2:
+        
+        case .AgeRange:
             let ageRangeCell = tableView.dequeueReusableCell(withIdentifier: AgeRangeCell.identifier,
                                                              for: indexPath) as! AgeRangeCell
+            ageRangeCell.ageRangeSlider.delegate = self
+            ageRangeButton = ageRangeCell.ageRangeButton
             return ageRangeCell
-        case 3:
+        
+        case .DoneButton:
             let doneButtonCell = tableView.dequeueReusableCell(withIdentifier: DoneButtonCell.identifier,
                                                                for: indexPath) as! DoneButtonCell
+            doneButtonCell.doneAddTarget(target: self, action: #selector(back))
             return doneButtonCell
-            
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            return cell
         }
+    }
+    
+    @objc private func back() {
+        router?.back()
     }
 }
 
 // MARK: - UITableViewDelegate
 extension FiltersViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 81
+}
+
+// MARK: - RangeUISliderDelegate
+extension FiltersViewController: RangeUISliderDelegate {
+    
+    func rangeChangeFinished(event: RangeUISliderChangeFinishedEvent) {
+    }
+    
+    func rangeIsChanging(event: RangeUISliderChangeEvent) {
+        switch event.slider.accessibilityIdentifier {
+        case "maxDistanceSlider":
+            maxDistanceButton?.setTitle("\(Int(event.minValueSelected))-\(Int(event.maxValueSelected)) Km", for: .normal)
+        case "ageRangeSlider":
+            ageRangeButton?.setTitle("\(Int(event.minValueSelected))-\(Int(event.maxValueSelected)) Age", for: .normal)
         default:
-            return 119
+            break
         }
     }
 }

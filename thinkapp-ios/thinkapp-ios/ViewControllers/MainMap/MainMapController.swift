@@ -140,12 +140,13 @@ extension MainMapController: MKMapViewDelegate {
 extension MainMapController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last?.coordinate {
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 5000, longitudinalMeters: 5000)
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
             let myAnnotation = MKPointAnnotation()
             myAnnotation.coordinate = location
             baseView.mapView.setRegion(region, animated: true)
             baseView.mapView.removeAnnotations(baseView.mapView.annotations)
             baseView.mapView.addAnnotation(myAnnotation)
+            locationManager.stopUpdatingLocation()
         }
     }
     

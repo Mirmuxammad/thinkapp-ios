@@ -1,14 +1,14 @@
 //
-//  FiltersTableView.swift
+//  AddMarkTableView.swift
 //  thinkapp-ios
 //
-//  Created by Ilyas Tyumenev on 09.09.2022.
+//  Created by Ilyas Tyumenev on 11.09.2022.
 //
 
 import UIKit
 import SnapKit
 
-class FiltersTableView: UIView {
+class AddMarkTableView: UIView {
     
     // MARK: - Private Properties
     private(set) lazy var tableView: UITableView = {
