@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045462C928D1F61F002473A7 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462C828D1F61F002473A7 /* SignUpController.swift */; };
+		045462CB28D1F665002473A7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462CA28D1F665002473A7 /* SignUpView.swift */; };
 		43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6828CE765100122DE5 /* FiltersCellType.swift */; };
 		43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */; };
 		43457B6D28CE7E3700122DE5 /* AddMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		045462C828D1F61F002473A7 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		045462CA28D1F665002473A7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		43457B6828CE765100122DE5 /* FiltersCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersCellType.swift; sourceTree = "<group>"; };
 		43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkTableView.swift; sourceTree = "<group>"; };
 		43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045462C728D1F5EA002473A7 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				045462C828D1F61F002473A7 /* SignUpController.swift */,
+				045462CA28D1F665002473A7 /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		390F337E3FC1D37FCBDCE574 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +228,7 @@
 				43602A8628C63BA50084091B /* Filters */,
 				E00D78E928C0E6ED00D1214A /* MainMap */,
 				E08B3CF128C0BA1900140D22 /* Welcome */,
+				045462C728D1F5EA002473A7 /* SignUp */,
 				E08B3CDE28BE39D100140D22 /* Login */,
 			);
 			path = ViewControllers;
@@ -369,8 +383,10 @@
 				E00D78EF28C1034700D1214A /* AdventureMapOverlay.swift in Sources */,
 				E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */,
 				4354661328CAFD550084AAA4 /* MaxDistanceCell.swift in Sources */,
+				045462C928D1F61F002473A7 /* SignUpController.swift in Sources */,
 				4354661128CAFD330084AAA4 /* GenderPreferenceCell.swift in Sources */,
 				E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */,
+				045462CB28D1F665002473A7 /* SignUpView.swift in Sources */,
 				E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */,
 				E00D78ED28C0E7E400D1214A /* MainMapController.swift in Sources */,
 				43457B7328CF003100122DE5 /* MyMessageCell.swift in Sources */,

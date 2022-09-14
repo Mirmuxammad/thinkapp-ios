@@ -47,6 +47,11 @@ class MainRouter: NSObject {
         pushViewController(vc: vc)
     }
     
+    func pushSignup() {
+        let vc = SignUpController()
+        pushViewController(vc: vc)
+    }
+    
     
     private func pushViewController(vc: Routable) {
         vc.router = self

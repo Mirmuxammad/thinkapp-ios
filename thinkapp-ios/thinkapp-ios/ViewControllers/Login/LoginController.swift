@@ -27,11 +27,13 @@ class LoginController: UIViewController, Routable {
     
     
     @objc private func loginWithMail() {
-        router?.pushWelcome()
+//        router?.pushWelcome()
+        router?.pushSignup()
         print("open email")
     }
     
     @objc private func loginWithApple() {
+        router?.pushSignup()
         print("open apple ID")
     }
 
