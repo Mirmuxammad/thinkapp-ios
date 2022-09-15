@@ -15,7 +15,7 @@ class DoneButtonCell: UITableViewCell {
     // MARK: - Private Properties
     let doneButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Done", for: .normal)
+        button.setTitle("Search", for: .normal)
         button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 28)
         button.setTitleColor(UIColor(hex: "FFFBFB"), for: .normal)
         button.setBackgroundImage(UIImage(named: "doneButton"), for: .normal)
