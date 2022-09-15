@@ -83,6 +83,7 @@ extension FiltersViewController: UITableViewDataSource {
                                                              for: indexPath) as! AgeRangeCell
             ageRangeCell.ageRangeSlider.delegate = self
             ageRangeButton = ageRangeCell.ageRangeButton
+            ageRangeCell.ageRangeSlider.leftKnobImage = UIImage(named: "knob")
             return ageRangeCell
         
         case .DoneButton:

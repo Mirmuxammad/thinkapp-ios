@@ -31,7 +31,7 @@ class AddMarkCell: UITableViewCell {
     
     private let genderPreferenceLabel: UILabel = {
         let label = UILabel()
-        label.text = "Gender Preference"
+        label.text = "You Gender"
         label.font = UIFont(name: "Inter-Medium", size: 15)
         label.textColor = UIColor(hex: "000000", alpha: 0.62)
         label.textAlignment = .left

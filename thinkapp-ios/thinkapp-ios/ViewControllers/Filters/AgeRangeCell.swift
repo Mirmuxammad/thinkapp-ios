@@ -59,7 +59,7 @@ class AgeRangeCell: UITableViewCell {
         
         rangeSlider.leftKnobWidth = 17
         rangeSlider.leftKnobHeight = 17
-        rangeSlider.leftKnobImage = UIImage(named: "knob")
+        rangeSlider.leftKnobImage = nil//UIImage(named: "knob")
         
         rangeSlider.rightKnobWidth = 17
         rangeSlider.rightKnobHeight = 17

@@ -148,6 +148,10 @@ extension AddMarkViewController: UITableViewDataSource {
                                                              for: indexPath) as! AgeRangeCell
             ageRangeCell.ageRangeSlider.delegate = self
             ageRangeButton = ageRangeCell.ageRangeButton
+            ageRangeCell.ageRangeLabel.text = "You Age"
+            ageRangeCell.ageRangeSlider.defaultValueLeftKnob = 0
+            ageRangeCell.ageRangeSlider.scaleMinValue = 0
+//            ageRangeCell.ageRangeSlider.leftKnobImage = nil
             return ageRangeCell
             
         case .MyMessage:
@@ -218,7 +222,7 @@ extension AddMarkViewController: RangeUISliderDelegate {
         case "maxDistanceSlider":
             maxDistanceButton?.setTitle("\(Int(event.minValueSelected))-\(Int(event.maxValueSelected)) Km", for: .normal)
         case "ageRangeSlider":
-            ageRangeButton?.setTitle("\(Int(event.minValueSelected))-\(Int(event.maxValueSelected)) Age", for: .normal)
+            ageRangeButton?.setTitle(/*\(Int(event.minValueSelected))-*/"\(Int(event.maxValueSelected)) Age", for: .normal)
         default:
             break
         }
