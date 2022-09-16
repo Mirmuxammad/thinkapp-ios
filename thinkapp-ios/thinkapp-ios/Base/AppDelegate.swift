@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         appCoordinator = AppCoordinator(window: window)
         appCoordinator?.didFinishLaunchingWithOptions(application, didFinishLaunchingWithOptions: launchOptions)
+        FirebaseApp.configure()
         return true
     }
 

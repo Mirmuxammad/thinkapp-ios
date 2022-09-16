@@ -8,6 +8,8 @@ target 'thinkapp-ios' do
   pod 'RangeUISlider'
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
   # Pods for thinkapp-ios
 
 end

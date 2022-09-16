@@ -13,7 +13,6 @@ class UserDefaultsService {
 
     private enum Keys {
         static let authToken = "authToken"
-        static let techCenters = "techCenters"
     }
 
     func removeAuthToken() {

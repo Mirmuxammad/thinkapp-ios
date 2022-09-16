@@ -15,6 +15,8 @@
 		400BC44E28D47C0000F42081 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44D28D47C0000F42081 /* BaseAPI.swift */; };
 		400BC45028D47C8000F42081 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44F28D47C8000F42081 /* NetworkError.swift */; };
 		400BC45428D47DE300F42081 /* MapMarkResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC45328D47DE300F42081 /* MapMarkResponce.swift */; };
+		400BC45628D48CED00F42081 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC45528D48CED00F42081 /* LoginAPI.swift */; };
+		400BC45828D491F100F42081 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 400BC45728D491F100F42081 /* GoogleService-Info.plist */; };
 		43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6828CE765100122DE5 /* FiltersCellType.swift */; };
 		43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */; };
 		43457B6D28CE7E3700122DE5 /* AddMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */; };
@@ -59,6 +61,8 @@
 		400BC44D28D47C0000F42081 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		400BC44F28D47C8000F42081 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		400BC45328D47DE300F42081 /* MapMarkResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkResponce.swift; sourceTree = "<group>"; };
+		400BC45528D48CED00F42081 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		400BC45728D491F100F42081 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		43457B6828CE765100122DE5 /* FiltersCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersCellType.swift; sourceTree = "<group>"; };
 		43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkTableView.swift; sourceTree = "<group>"; };
 		43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		400BC44428D4768600F42081 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				400BC45528D48CED00F42081 /* LoginAPI.swift */,
 				400BC44628D476B600F42081 /* MapAPI.swift */,
 				400BC44828D47A0300F42081 /* RequestInterceptor.swift */,
 				400BC44D28D47C0000F42081 /* BaseAPI.swift */,
@@ -248,6 +253,7 @@
 				E08B3CC828BE19EC00140D22 /* Assets.xcassets */,
 				E014D7F728BE19390079FEFB /* LaunchScreen.storyboard */,
 				E014D7FA28BE19390079FEFB /* Info.plist */,
+				400BC45728D491F100F42081 /* GoogleService-Info.plist */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */,
 				E08B3CD928BE266400140D22 /* Syne-Regular.ttf in Resources */,
 				E08B3CD728BE266000140D22 /* Inter-Medium.otf in Resources */,
+				400BC45828D491F100F42081 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +429,7 @@
 			files = (
 				E08B3CCF28BE1BF300140D22 /* Constants.swift in Sources */,
 				400BC45028D47C8000F42081 /* NetworkError.swift in Sources */,
+				400BC45628D48CED00F42081 /* LoginAPI.swift in Sources */,
 				E08B3CCC28BE1A3400140D22 /* AppCoordinator.swift in Sources */,
 				43457B7128CE890A00122DE5 /* AddMarkCellType.swift in Sources */,
 				400BC44728D476B600F42081 /* MapAPI.swift in Sources */,
@@ -592,6 +600,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G2225WD3CL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "thinkapp-ios/Base/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -620,6 +629,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G2225WD3CL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "thinkapp-ios/Base/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
