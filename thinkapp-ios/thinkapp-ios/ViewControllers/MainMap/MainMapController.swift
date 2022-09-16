@@ -12,6 +12,9 @@ class MainMapController: UIViewController, Routable {
     
     var router: MainRouter?
     
+    var mapMarks: [MapMark] = []
+    
+    
     private let baseView: MainMapView = MainMapView()
     
     private let locationManager = CLLocationManager()
@@ -24,6 +27,10 @@ class MainMapController: UIViewController, Routable {
         baseView.filtersAddTarget(target: self, action: #selector(getFilters))
         baseView.addMarkAddTarget(target: self, action: #selector(addMark))
         baseView.mapDelegate(delegate: self)
+        
+        getMapMarks()
+        print("🔴")
+        print(mapMarks)
     }
 
     override func viewWillLayoutSubviews() {
@@ -107,6 +114,18 @@ class MainMapController: UIViewController, Routable {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+    
+    private func getMapMarks() {
+        MapAPI.getMapMarker { [weak self] jsonData in
+            self?.mapMarks = jsonData
+        } failure: { error in
+            let alert = UIAlertController(title: "Ошибка", message: error?.message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+
     }
     
 }

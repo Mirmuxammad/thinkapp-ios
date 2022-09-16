@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		045462C928D1F61F002473A7 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462C828D1F61F002473A7 /* SignUpController.swift */; };
 		045462CB28D1F665002473A7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462CA28D1F665002473A7 /* SignUpView.swift */; };
+		400BC44728D476B600F42081 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44628D476B600F42081 /* MapAPI.swift */; };
+		400BC44928D47A0300F42081 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44828D47A0300F42081 /* RequestInterceptor.swift */; };
+		400BC44C28D47B7000F42081 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44B28D47B7000F42081 /* UserDefaults.swift */; };
+		400BC44E28D47C0000F42081 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44D28D47C0000F42081 /* BaseAPI.swift */; };
+		400BC45028D47C8000F42081 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44F28D47C8000F42081 /* NetworkError.swift */; };
+		400BC45428D47DE300F42081 /* MapMarkResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC45328D47DE300F42081 /* MapMarkResponce.swift */; };
 		43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6828CE765100122DE5 /* FiltersCellType.swift */; };
 		43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */; };
 		43457B6D28CE7E3700122DE5 /* AddMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */; };
@@ -47,6 +53,12 @@
 		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		045462C828D1F61F002473A7 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		045462CA28D1F665002473A7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		400BC44628D476B600F42081 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
+		400BC44828D47A0300F42081 /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
+		400BC44B28D47B7000F42081 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		400BC44D28D47C0000F42081 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		400BC44F28D47C8000F42081 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		400BC45328D47DE300F42081 /* MapMarkResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkResponce.swift; sourceTree = "<group>"; };
 		43457B6828CE765100122DE5 /* FiltersCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersCellType.swift; sourceTree = "<group>"; };
 		43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkTableView.swift; sourceTree = "<group>"; };
 		43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +123,42 @@
 				006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		400BC44328D4767D00F42081 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				400BC44428D4768600F42081 /* Networking */,
+				400BC44528D4769300F42081 /* Models */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		400BC44428D4768600F42081 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				400BC44628D476B600F42081 /* MapAPI.swift */,
+				400BC44828D47A0300F42081 /* RequestInterceptor.swift */,
+				400BC44D28D47C0000F42081 /* BaseAPI.swift */,
+				400BC44F28D47C8000F42081 /* NetworkError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		400BC44528D4769300F42081 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				400BC45328D47DE300F42081 /* MapMarkResponce.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		400BC44A28D47B5400F42081 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				400BC44B28D47B7000F42081 /* UserDefaults.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		43433C9828C7921A00B568BA /* AddMark */ = {
@@ -179,6 +227,8 @@
 		E014D7EB28BE19380079FEFB /* thinkapp-ios */ = {
 			isa = PBXGroup;
 			children = (
+				400BC44A28D47B5400F42081 /* Utils */,
+				400BC44328D4767D00F42081 /* API */,
 				E08B3CDD28BE39B800140D22 /* ViewControllers */,
 				E08B3CDA28BE285D00140D22 /* Extension */,
 				E014D80028BE19850079FEFB /* Base */,
@@ -371,18 +421,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08B3CCF28BE1BF300140D22 /* Constants.swift in Sources */,
+				400BC45028D47C8000F42081 /* NetworkError.swift in Sources */,
 				E08B3CCC28BE1A3400140D22 /* AppCoordinator.swift in Sources */,
 				43457B7128CE890A00122DE5 /* AddMarkCellType.swift in Sources */,
+				400BC44728D476B600F42081 /* MapAPI.swift in Sources */,
 				E00D78EB28C0E7D600D1214A /* MainMapView.swift in Sources */,
 				E08B3CCD28BE1A3400140D22 /* MainRouter.swift in Sources */,
 				43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */,
 				43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */,
 				4354661728CAFDAC0084AAA4 /* DoneButtonCell.swift in Sources */,
 				E08B3CDC28BE288400140D22 /* UIColor+extension.swift in Sources */,
+				400BC44928D47A0300F42081 /* RequestInterceptor.swift in Sources */,
 				E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */,
 				E00D78EF28C1034700D1214A /* AdventureMapOverlay.swift in Sources */,
 				E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */,
 				4354661328CAFD550084AAA4 /* MaxDistanceCell.swift in Sources */,
+				400BC44E28D47C0000F42081 /* BaseAPI.swift in Sources */,
 				045462C928D1F61F002473A7 /* SignUpController.swift in Sources */,
 				4354661128CAFD330084AAA4 /* GenderPreferenceCell.swift in Sources */,
 				E014D7EF28BE19380079FEFB /* SceneDelegate.swift in Sources */,
@@ -394,6 +448,8 @@
 				E08B3CE228BE3A0B00140D22 /* LoginView.swift in Sources */,
 				43457B6D28CE7E3700122DE5 /* AddMarkViewController.swift in Sources */,
 				4354660F28CAFD020084AAA4 /* FiltersTableView.swift in Sources */,
+				400BC44C28D47B7000F42081 /* UserDefaults.swift in Sources */,
+				400BC45428D47DE300F42081 /* MapMarkResponce.swift in Sources */,
 				4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */,
 				43457B6F28CE80D200122DE5 /* AddMarkCell.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
