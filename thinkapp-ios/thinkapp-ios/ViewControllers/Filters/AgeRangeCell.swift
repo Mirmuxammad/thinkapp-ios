@@ -69,6 +69,7 @@ class AgeRangeCell: UITableViewCell {
         rangeSlider.barLeading = 0
         rangeSlider.barTrailing = 0
         
+        
         return rangeSlider
     }()
     

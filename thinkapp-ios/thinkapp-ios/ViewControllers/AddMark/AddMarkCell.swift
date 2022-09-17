@@ -38,7 +38,7 @@ class AddMarkCell: UITableViewCell {
         return label
     }()
     
-    private let genderPreferenceButton: UIButton = {
+    let genderPreferenceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Female", for: .normal)
         button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)

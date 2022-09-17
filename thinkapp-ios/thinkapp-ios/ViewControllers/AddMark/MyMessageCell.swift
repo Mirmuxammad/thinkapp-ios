@@ -13,7 +13,7 @@ class MyMessageCell: UITableViewCell {
     static let identifier = "MyMessageCell"
     
     // MARK: - Private Properties
-    private let myMessageLabel: UILabel = {
+    let myMessageLabel: UILabel = {
         let label = UILabel()
         label.text = "My Message"
         label.font = UIFont(name: "Inter-Medium", size: 15)

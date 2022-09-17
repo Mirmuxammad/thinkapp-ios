@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct MapMark {
-    var locationLat: String?
-    var locationLon: String?
-    var gender: String?
-    var age: String?
-    var text: String?
+struct MapMark: Codable {
+    var location: Location
+    var gender: String
+    var age: String
+    var text: String
+}
+
+struct Location: Codable {
+    var lat: String
+    var lon: String
 }
