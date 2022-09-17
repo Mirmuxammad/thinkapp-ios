@@ -18,7 +18,7 @@ class SignUpView: UIView {
         return label
     }()
     
-    private let emailTextField: UITextField = {
+    let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Your email..."
         textField.font = BaseFont.interRegulat(with: 14)
@@ -51,7 +51,7 @@ class SignUpView: UIView {
         return button
     }()
     
-    private let verificationTextField: UITextField = {
+    let verificationTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Verification code"
         textField.font = BaseFont.interRegulat(with: 14)

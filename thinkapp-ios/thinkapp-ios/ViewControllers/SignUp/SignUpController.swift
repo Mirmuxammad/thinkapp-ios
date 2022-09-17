@@ -26,11 +26,28 @@ class SignUpController: UIViewController, Routable {
     }
     
     @objc private func didSentEmailAddres() {
+        guard let email = baseView.emailTextField.text else { return }
+        LoginAPI.sendCodeEmail(email: email, success: { [weak self] jsonData in
+        
+        }) { error in
+            guard let error = error else { return }
+            print(error.localizedDescription)
+        }
+    
         baseView.didEmailSent()
     }
     
     @objc private func didTapSignUp() {
-        router?.pushWelcome()
+        guard let email = baseView.emailTextField.text else { return }
+        guard let code = baseView.verificationTextField.text else { return }
+        guard let veriCode = Int(code) else { return }
+        
+        LoginAPI.loginWithEmailCode(email: email, code: code, success: { [weak self] jsonData in
+            self?.router?.pushWelcome()
+        }) { error in
+            guard let error = error else { return }
+            print(error.localizedDescription)
+        }
     }
     
 }

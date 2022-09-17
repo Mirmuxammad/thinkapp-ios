@@ -74,7 +74,6 @@ class LoginController: UIViewController, Routable {
     }
     
     @objc private func loginWithMail() {
-//        router?.pushWelcome()
         router?.pushSignup()
         print("open email")
     }
