@@ -52,6 +52,11 @@ class MainRouter: NSObject {
         pushViewController(vc: vc)
     }
     
+    func pushChat() {
+        let vc = ChatController()
+        pushViewController(vc: vc)
+    }
+    
     
     private func pushViewController(vc: Routable) {
         vc.router = self

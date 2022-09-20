@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		045462C928D1F61F002473A7 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462C828D1F61F002473A7 /* SignUpController.swift */; };
 		045462CB28D1F665002473A7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462CA28D1F665002473A7 /* SignUpView.swift */; };
+		04820AFC28D4AB8A008F0720 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04820AFB28D4AB8A008F0720 /* ChatController.swift */; };
+		04820AFE28D4ADC9008F0720 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04820AFD28D4ADC9008F0720 /* ChatView.swift */; };
 		400BC44728D476B600F42081 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44628D476B600F42081 /* MapAPI.swift */; };
 		400BC44928D47A0300F42081 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44828D47A0300F42081 /* RequestInterceptor.swift */; };
 		400BC44C28D47B7000F42081 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44B28D47B7000F42081 /* UserDefaults.swift */; };
@@ -53,6 +55,8 @@
 		006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thinkapp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		045462C828D1F61F002473A7 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		045462CA28D1F665002473A7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		04820AFB28D4AB8A008F0720 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		04820AFD28D4ADC9008F0720 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		400BC44628D476B600F42081 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
 		400BC44828D47A0300F42081 /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		400BC44B28D47B7000F42081 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 				045462CA28D1F665002473A7 /* SignUpView.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		04820AFA28D4AB6F008F0720 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				04820AFB28D4AB8A008F0720 /* ChatController.swift */,
+				04820AFD28D4ADC9008F0720 /* ChatView.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		390F337E3FC1D37FCBDCE574 /* Frameworks */ = {
@@ -274,6 +287,7 @@
 		E08B3CDD28BE39B800140D22 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				04820AFA28D4AB6F008F0720 /* Chat */,
 				43433C9828C7921A00B568BA /* AddMark */,
 				43602A8628C63BA50084091B /* Filters */,
 				E00D78E928C0E6ED00D1214A /* MainMap */,
@@ -451,6 +465,8 @@
 				400BC44C28D47B7000F42081 /* UserDefaults.swift in Sources */,
 				400BC45428D47DE300F42081 /* MapMarkResponce.swift in Sources */,
 				4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */,
+				04820AFC28D4AB8A008F0720 /* ChatController.swift in Sources */,
+				04820AFE28D4ADC9008F0720 /* ChatView.swift in Sources */,
 				43457B6F28CE80D200122DE5 /* AddMarkCell.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,
 			);
