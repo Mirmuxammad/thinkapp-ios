@@ -15,6 +15,15 @@ struct MapMark: Codable {
 }
 
 struct Location: Codable {
-    var lat: String
-    var lon: String
+    var lat: Double
+    var lon: Double
+}
+
+struct MapMarkResponce {
+    var id: Int
+    var user: User
+    var location: Location
+    var age: String
+    var gender: String
+    var text: String
 }

@@ -170,8 +170,8 @@ extension AddMarkViewController: UITableViewDataSource {
     }
     
     @objc private func back() {
-        let lon = mapView.centerCoordinate.longitude.debugDescription
-        let lat = mapView.centerCoordinate.latitude.debugDescription
+        let lon = Double(mapView.centerCoordinate.longitude.debugDescription) ?? 0.0
+        let lat = Double(mapView.centerCoordinate.latitude.debugDescription) ??  0.0
         guard let age = ageRangeButton?.titleLabel?.text?.prefix(2) else {return}
         guard let gender = addMarkCell.genderPreferenceButton.titleLabel?.text?.lowercased() else { return }
         guard let text = massageView.myMessageLabel.text else { return }

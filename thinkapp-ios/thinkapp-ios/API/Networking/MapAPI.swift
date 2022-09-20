@@ -40,7 +40,7 @@ final class MapAPI {
         }
     }
     
-    static func getMapMarker(success: @escaping ([MapMark]) -> Void, failure: @escaping escapeNetworkError) {
+    static func getMapMarker(success: @escaping ([MapMarkResponce]) -> Void, failure: @escaping escapeNetworkError) {
         let params: Parameters = [:]
         
         BaseAPI.authorizedGetRequest(reqMethod: .mapMarker, parameters: params, success: { data in
@@ -48,12 +48,12 @@ final class MapAPI {
             let jsonData = JSON(data)
             let errors = jsonData["errors"]
             if errors.type == .null {
-                var mapMarks = [MapMark]()
-                for mark in jsonData["result"].arrayValue {
-                    mapMarks.append(MapMark(location: Location(lat: mark["location"]["lat"].stringValue, lon: mark["location"]["lot"].stringValue), gender: mark["gender"].stringValue,
-                                            age: mark["age"].stringValue,
-                                            text: mark["text"].stringValue))
+                var mapMarks = [MapMarkResponce]()
+                for mark in jsonData["data"].arrayValue {
+                    mapMarks.append(MapMarkResponce(id: mark["id"].intValue, user: User(id: mark["user"]["id"].intValue, name: mark["user"]["name"].stringValue, online: mark["user"]["online"].boolValue), location: Location(lat: mark["location"]["lat"].doubleValue, lon: mark["location"]["lon"].doubleValue), age: mark["age"].stringValue, gender: mark["gender"].stringValue, text: mark["text"].stringValue))
                 }
+                print("⚡️")
+                print(mapMarks)
                 success(mapMarks)
             } else {
                 failure(NetworkError(.other(errors.stringValue)))

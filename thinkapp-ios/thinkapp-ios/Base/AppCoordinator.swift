@@ -31,6 +31,7 @@ class AppCoordinator: NSObject {
             router?.pushLogin()
         } else {
             router?.pushMainMap()
+            print(UserDefaults.standard.value(forKey: "authToken"))
         }
         
         self.window.rootViewController = navController

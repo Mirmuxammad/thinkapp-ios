@@ -63,6 +63,12 @@ class MainMapView: UIView {
         return button
     }()
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.style = .large
+        return view
+    }()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         addViews()
