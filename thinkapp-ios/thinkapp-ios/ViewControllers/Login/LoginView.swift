@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class LoginView: UIView {
     
     private let topColorView: UIView = {

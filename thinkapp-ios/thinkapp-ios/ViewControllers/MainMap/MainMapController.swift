@@ -12,7 +12,7 @@ class MainMapController: UIViewController, Routable {
     
     var router: MainRouter?
     
-    var mapMarks: [MapMark] = []
+    var mapMarks: [MapMarkResponce] = []
     
     
     private let baseView: MainMapView = MainMapView()
@@ -20,19 +20,21 @@ class MainMapController: UIViewController, Routable {
     private let locationManager = CLLocationManager()
     
     private var tileRenderer: MKTileOverlayRenderer?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         baseView.backAddTarget(target: self, action: #selector(back))
         baseView.filtersAddTarget(target: self, action: #selector(getFilters))
         baseView.addMarkAddTarget(target: self, action: #selector(addMark))
         baseView.mapDelegate(delegate: self)
-        
-        getMapMarks()
-        print("🔴")
-        print(mapMarks)
+        creatAnnotation(locations: mapMarks)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillLayoutSubviews()
+        getMapMarks()
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         baseView.frame = view.bounds
@@ -117,25 +119,40 @@ class MainMapController: UIViewController, Routable {
     }
     
     private func getMapMarks() {
+        baseView.activityIndicator.startAnimating()
         MapAPI.getMapMarker { [weak self] jsonData in
             self?.mapMarks = jsonData
+            self?.creatAnnotation(locations: self!.mapMarks)
+            self?.baseView.activityIndicator.stopAnimating()
         } failure: { error in
             let alert = UIAlertController(title: "Ошибка", message: error?.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             }))
             self.present(alert, animated: true, completion: nil)
         }
-
     }
     
+    func creatAnnotation(locations: [MapMarkResponce]) {
+        for location in locations {
+            let annotations = MKPointAnnotation()
+            annotations.title = location.text
+            annotations.subtitle = "User Name"
+            annotations.coordinate = CLLocationCoordinate2D(latitude: location.location.lat as! CLLocationDegrees, longitude: location.location.lon as! CLLocationDegrees)
+            baseView.mapView.addAnnotation(annotations)
+        }
+        
+        
+    }
+
 }
 
 extension MainMapController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
         
-        var annotationView = baseView.mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
         
+        var annotationView = baseView.mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
             annotationView?.canShowCallout = true
@@ -154,10 +171,13 @@ extension MainMapController: MKMapViewDelegate {
     }
     
     
+    
+    
 }
 
 extension MainMapController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
         if let location = locations.last?.coordinate {
             let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
             let myAnnotation = MKPointAnnotation()
@@ -167,6 +187,8 @@ extension MainMapController: CLLocationManagerDelegate {
             baseView.mapView.addAnnotation(myAnnotation)
             locationManager.stopUpdatingLocation()
         }
+        
+        
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

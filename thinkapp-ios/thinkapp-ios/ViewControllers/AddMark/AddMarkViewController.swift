@@ -8,18 +8,24 @@
 import UIKit
 import MapKit
 import RangeUISlider
+import CoreLocation
 
 class AddMarkViewController: UIViewController, Routable {
     
     // MARK: - Private Properties
     private let table: AddMarkTableView = AddMarkTableView()
     private var dataSourceArray = [AddMarkCellType]()
+    private let massageView: MyMessageCell = MyMessageCell()
+    private let addMarkCell: AddMarkCell = AddMarkCell()
+    private let ageRange: AgeRangeCell = AgeRangeCell()
     
     private var mapView: MKMapView!
     private let locationManager = CLLocationManager()
     
     private weak var maxDistanceButton: UIButton?
     private weak var ageRangeButton: UIButton?
+    
+    var location: Location?
     
     
     // MARK: - Public Properties
@@ -164,6 +170,22 @@ extension AddMarkViewController: UITableViewDataSource {
     }
     
     @objc private func back() {
+        let lon = Double(mapView.centerCoordinate.longitude.debugDescription) ?? 0.0
+        let lat = Double(mapView.centerCoordinate.latitude.debugDescription) ??  0.0
+        guard let age = ageRangeButton?.titleLabel?.text?.prefix(2) else {return}
+        guard let gender = addMarkCell.genderPreferenceButton.titleLabel?.text?.lowercased() else { return }
+        guard let text = massageView.myMessageLabel.text else { return }
+        print("🔴")
+        print(gender)
+        MapAPI.postMapMark(location: Location(lat: lat, lon: lon), gender: gender, age: String(age), text: text, success: { [weak self] jsonData in
+            
+        }) { error in
+            guard let error = error else { return }
+            print(error.localizedDescription)
+        }
+        
+        print("back")
+        print(mapView.centerCoordinate.longitude.debugDescription)
         router?.back()
     }
 }

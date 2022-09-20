@@ -27,7 +27,13 @@ class AppCoordinator: NSObject {
     private func startScreenFlow() {
         let navController = UINavigationController()
         router = MainRouter(navigationController: navController)
-        router?.pushLogin()
+        if UserDefaults.standard.value(forKey: "authToken") == nil {
+            router?.pushLogin()
+        } else {
+            router?.pushMainMap()
+            print(UserDefaults.standard.value(forKey: "authToken"))
+        }
+        
         self.window.rootViewController = navController
         self.window.makeKeyAndVisible()
     }

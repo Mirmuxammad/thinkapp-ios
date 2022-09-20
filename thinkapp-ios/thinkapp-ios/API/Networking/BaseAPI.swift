@@ -11,11 +11,17 @@ import SwiftyJSON
 
 enum RequestMethod {
     case mapMarker
+    case registerGetCode
+    case registerVeri
     
     var path: String {
         switch self {
         case .mapMarker:
             return "point"
+        case .registerGetCode:
+            return "auth/register/code"
+        case .registerVeri:
+            return "auth/register"
         }
     }
 }
@@ -68,5 +74,11 @@ final class BaseAPI {
     
     static func authorizedGetRequest(reqMethod: RequestMethod, parameters: Parameters, success: @escaping (Data?) -> Void, failure: @escaping (NetworkError?) -> Void) {
         request(reqMethod: reqMethod, parameters: parameters, method: .get, success: success, failure: failure)
+    }
+    
+    // MARK: POST Requests
+    
+    static func unAuthorizedPostRequest(reqMethod: RequestMethod, parameters: Parameters, success: @escaping (Data?) -> Void, failure: @escaping (NetworkError?) -> Void) {
+        request(reqMethod: reqMethod, parameters: parameters, method: .post, success: success, failure: failure)
     }
 }
