@@ -133,18 +133,20 @@ class ChatView: UIView {
         textContainerView.addSubview(lineView)
         textContainerView.addSubview(textView)
         textContainerView.addSubview(audioButton)
+        addSubview(tableView)
     }
     
     private func addConstraints() {
         
         navigationView.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
-            make.height.equalTo(100)
+//            make.height.equalTo(100)
         }
         
         horizontalStackView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(40)
             make.right.equalToSuperview().offset(-22)
+            make.top.equalTo(self.safeAreaLayoutGuide)
             make.bottom.equalToSuperview().offset(-20)
             make.height.equalTo(42)
         }
@@ -187,6 +189,13 @@ class ChatView: UIView {
             make.left.equalTo(textView.snp.right).offset(5)
             make.right.equalToSuperview().offset(-20)
             make.centerY.equalToSuperview()
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(navigationView.snp.bottom)
+            make.bottom.equalTo(textContainerView.snp.top)
+            make.left.equalToSuperview().offset(30)
+            make.right.equalToSuperview().offset(-30)
         }
         
         

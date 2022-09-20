@@ -42,6 +42,8 @@ class ChatController: UIViewController, Routable {
     func conformProtocols() {
         tableView?.delegate = self
         tableView?.dataSource = self
+        tableView?.register(ChatCell.self, forCellReuseIdentifier: ChatCell.identifier)
+        tableView?.register(MeChatCell.self, forCellReuseIdentifier: MeChatCell.identifier)
     }
 }
 
@@ -49,13 +51,20 @@ class ChatController: UIViewController, Routable {
 extension ChatController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "234242"
-        return cell
+        
+        if indexPath.row % 2 == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.identifier, for: indexPath) as! ChatCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MeChatCell.identifier, for: indexPath) as! MeChatCell
+            return cell
+        }
+        
+        
     }
     
 }

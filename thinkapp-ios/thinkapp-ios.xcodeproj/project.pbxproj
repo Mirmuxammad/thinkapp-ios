@@ -11,6 +11,8 @@
 		045462CB28D1F665002473A7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462CA28D1F665002473A7 /* SignUpView.swift */; };
 		04820AFC28D4AB8A008F0720 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04820AFB28D4AB8A008F0720 /* ChatController.swift */; };
 		04820AFE28D4ADC9008F0720 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04820AFD28D4ADC9008F0720 /* ChatView.swift */; };
+		04DE246728D9B4DF00B8E6F4 /* MeChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE246628D9B4DF00B8E6F4 /* MeChatCell.swift */; };
+		04DE246928D9B4EA00B8E6F4 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE246828D9B4EA00B8E6F4 /* ChatCell.swift */; };
 		400BC44728D476B600F42081 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44628D476B600F42081 /* MapAPI.swift */; };
 		400BC44928D47A0300F42081 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44828D47A0300F42081 /* RequestInterceptor.swift */; };
 		400BC44C28D47B7000F42081 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44B28D47B7000F42081 /* UserDefaults.swift */; };
@@ -61,6 +63,8 @@
 		045462CA28D1F665002473A7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		04820AFB28D4AB8A008F0720 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		04820AFD28D4ADC9008F0720 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		04DE246628D9B4DF00B8E6F4 /* MeChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeChatCell.swift; sourceTree = "<group>"; };
+		04DE246828D9B4EA00B8E6F4 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		400BC44628D476B600F42081 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
 		400BC44828D47A0300F42081 /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		400BC44B28D47B7000F42081 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 			children = (
 				04820AFB28D4AB8A008F0720 /* ChatController.swift */,
 				04820AFD28D4ADC9008F0720 /* ChatView.swift */,
+				04DE246628D9B4DF00B8E6F4 /* MeChatCell.swift */,
+				04DE246828D9B4EA00B8E6F4 /* ChatCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08B3CCF28BE1BF300140D22 /* Constants.swift in Sources */,
+				04DE246728D9B4DF00B8E6F4 /* MeChatCell.swift in Sources */,
 				400BC45028D47C8000F42081 /* NetworkError.swift in Sources */,
 				400BC45628D48CED00F42081 /* LoginAPI.swift in Sources */,
 				E08B3CCC28BE1A3400140D22 /* AppCoordinator.swift in Sources */,
@@ -479,6 +486,7 @@
 				4354660F28CAFD020084AAA4 /* FiltersTableView.swift in Sources */,
 				400BC44C28D47B7000F42081 /* UserDefaults.swift in Sources */,
 				400BC45428D47DE300F42081 /* MapMark.swift in Sources */,
+				04DE246928D9B4EA00B8E6F4 /* ChatCell.swift in Sources */,
 				4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */,
 				04820AFC28D4AB8A008F0720 /* ChatController.swift in Sources */,
 				04820AFE28D4ADC9008F0720 /* ChatView.swift in Sources */,
