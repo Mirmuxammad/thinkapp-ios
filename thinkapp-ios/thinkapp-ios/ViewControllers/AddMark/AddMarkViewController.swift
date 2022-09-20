@@ -236,15 +236,16 @@ extension AddMarkViewController: CLLocationManagerDelegate {
 // MARK: - RangeUISliderDelegate
 extension AddMarkViewController: RangeUISliderDelegate {
     
-    func rangeChangeFinished(event: RangeUISliderChangeFinishedEvent) {
+    func rangeChangeFinished(minValueSelected: CGFloat, maxValueSelected: CGFloat, slider: RangeUISlider) {
+    
     }
     
-    func rangeIsChanging(event: RangeUISliderChangeEvent) {
-        switch event.slider.accessibilityIdentifier {
+    func rangeIsChanging(minValueSelected: CGFloat, maxValueSelected: CGFloat, slider: RangeUISlider) {
+        switch slider.accessibilityIdentifier {
         case "maxDistanceSlider":
-            maxDistanceButton?.setTitle("\(Int(event.minValueSelected))-\(Int(event.maxValueSelected)) Km", for: .normal)
+            maxDistanceButton?.setTitle("\(Int(minValueSelected))-\(Int(maxValueSelected)) Km", for: .normal)
         case "ageRangeSlider":
-            ageRangeButton?.setTitle(/*\(Int(event.minValueSelected))-*/"\(Int(event.maxValueSelected)) Age", for: .normal)
+            ageRangeButton?.setTitle(/*\(Int(event.minValueSelected))-*/"\(Int(maxValueSelected)) Age", for: .normal)
         default:
             break
         }
