@@ -141,6 +141,14 @@ extension LoginController: ASAuthorizationControllerDelegate {
                         print("the user has sign up or is logged in")
                     }
                 }
+                
+                LoginAPI.fireLogin(token: uid) { [weak self] json in
+                    print(json)
+                    self?.router?.pushWelcome()
+                } failture: { error in
+                    print(error)
+                }
+
             }
         }
     }

@@ -13,6 +13,7 @@ enum RequestMethod {
     case mapMarker
     case registerGetCode
     case registerVeri
+    case fireLogin
     
     var path: String {
         switch self {
@@ -22,6 +23,8 @@ enum RequestMethod {
             return "auth/register/code"
         case .registerVeri:
             return "auth/register"
+        case .fireLogin:
+            return "firebase/login"
         }
     }
 }

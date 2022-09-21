@@ -51,4 +51,24 @@ final class LoginAPI {
             failture(error)
         }
     }
+    
+    static func fireLogin(token: String, success: @escaping escapeJSON, failture: @escaping escapeNetworkError) {
+        
+        let params: Parameters = [
+            "token": token
+        ]
+        
+        BaseAPI.unAuthorizedPostRequest(reqMethod: .fireLogin, parameters: params, success: { data in
+            guard let data = data else { return }
+            let jsonData = JSON(data)
+            let errors = jsonData["errors"]
+            if errors.type == .null {
+                success(jsonData["result"])
+            } else {
+                failture(NetworkError(.other(errors.stringValue)))
+            }
+        }) { error in
+            failture(error)
+        }
+    }
 }
