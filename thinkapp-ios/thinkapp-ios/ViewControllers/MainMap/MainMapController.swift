@@ -14,6 +14,7 @@ class MainMapController: UIViewController, Routable {
     
     var mapMarks: [MapMarkResponce] = []
     
+    private let customMarker: CustomAnnotationView = CustomAnnotationView()
     
     private let baseView: MainMapView = MainMapView()
     
@@ -31,6 +32,7 @@ class MainMapController: UIViewController, Routable {
         marker.snippet = "Australia"
         marker.map = baseView.mapView
         baseView.mapView.delegate = self
+        baseView.mapView.isMyLocationEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +90,13 @@ class MainMapController: UIViewController, Routable {
             break
         @unknown default:
             break
+        }
+    }
+    
+    private func showMark() {
+        for location in mapMarks {
+            let marker = GMSMarker()
+            marker.iconView = customMarker
         }
     }
     

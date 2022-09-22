@@ -20,9 +20,9 @@
 		400BC45028D47C8000F42081 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44F28D47C8000F42081 /* NetworkError.swift */; };
 		400BC45428D47DE300F42081 /* MapMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC45328D47DE300F42081 /* MapMark.swift */; };
 		400BC45628D48CED00F42081 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC45528D48CED00F42081 /* LoginAPI.swift */; };
-		400BC45828D491F100F42081 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 400BC45728D491F100F42081 /* GoogleService-Info.plist */; };
 		4040370828D86B3600121306 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040370728D86B3600121306 /* UserModel.swift */; };
 		4040370C28D88F0100121306 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040370B28D88F0100121306 /* CustomAnnotationView.swift */; };
+		40C1299128DC62CD0075D921 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40C1299028DC62CD0075D921 /* GoogleService-Info.plist */; };
 		43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6828CE765100122DE5 /* FiltersCellType.swift */; };
 		43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */; };
 		43457B6D28CE7E3700122DE5 /* AddMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */; };
@@ -72,9 +72,9 @@
 		400BC44F28D47C8000F42081 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		400BC45328D47DE300F42081 /* MapMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMark.swift; sourceTree = "<group>"; };
 		400BC45528D48CED00F42081 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
-		400BC45728D491F100F42081 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4040370728D86B3600121306 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4040370B28D88F0100121306 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		40C1299028DC62CD0075D921 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/Telegram Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		43457B6828CE765100122DE5 /* FiltersCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersCellType.swift; sourceTree = "<group>"; };
 		43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkTableView.swift; sourceTree = "<group>"; };
 		43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkViewController.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 				E08B3CC828BE19EC00140D22 /* Assets.xcassets */,
 				E014D7F728BE19390079FEFB /* LaunchScreen.storyboard */,
 				E014D7FA28BE19390079FEFB /* Info.plist */,
-				400BC45728D491F100F42081 /* GoogleService-Info.plist */,
+				40C1299028DC62CD0075D921 /* GoogleService-Info.plist */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -403,7 +403,7 @@
 				E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */,
 				E08B3CD928BE266400140D22 /* Syne-Regular.ttf in Resources */,
 				E08B3CD728BE266000140D22 /* Inter-Medium.otf in Resources */,
-				400BC45828D491F100F42081 /* GoogleService-Info.plist in Resources */,
+				40C1299128DC62CD0075D921 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
