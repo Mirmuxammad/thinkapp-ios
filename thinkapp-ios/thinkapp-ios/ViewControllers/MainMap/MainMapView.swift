@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import MapKit
+import GoogleMaps
 import SnapKit
 
 class MainMapView: UIView {
 
-    let mapView: MKMapView = {
-        let map = MKMapView()
-        map.showsUserLocation = true
+    let mapView: GMSMapView = {
+        let map = GMSMapView()
+        map.camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         return map
     }()
     
@@ -86,10 +86,6 @@ class MainMapView: UIView {
     func filtersAddTarget(target: Any, action: Selector) {
         filterButton.addTarget(target, action: action, for: .touchUpInside)
     }
-    
-    func mapDelegate(delegate: MKMapViewDelegate) {
-        mapView.delegate = delegate
-    } 
     
     private func addViews() {
         addSubview(mapView)
