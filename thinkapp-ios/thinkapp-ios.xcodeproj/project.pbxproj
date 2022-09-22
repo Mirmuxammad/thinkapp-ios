@@ -654,7 +654,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H83SG7N4Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "thinkapp-ios/Base/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To determine the location";
@@ -668,7 +668,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "none.thinkapp-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "jele.thinkapp-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -688,7 +688,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H83SG7N4Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "thinkapp-ios/Base/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To determine the location";
@@ -702,7 +702,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "none.thinkapp-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "jele.thinkapp-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;

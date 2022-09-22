@@ -9,7 +9,7 @@ target 'thinkapp-ios' do
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'FirebaseAuth'
-  pod 'FirebaseFirestore'
+  #pod 'FirebaseFirestore'
   pod 'GoogleMaps', '7.1.0'
   # Pods for thinkapp-ios
 

@@ -107,6 +107,10 @@ extension FiltersViewController: UITableViewDelegate {
 
 // MARK: - RangeUISliderDelegate
 extension FiltersViewController: RangeUISliderDelegate {
+    func rangeChangeFinished(event: RangeUISliderChangeFinishedEvent) {
+        
+    }
+    
     
     func rangeChangeFinished(minValueSelected: CGFloat, maxValueSelected: CGFloat, slider: RangeUISlider) {
     

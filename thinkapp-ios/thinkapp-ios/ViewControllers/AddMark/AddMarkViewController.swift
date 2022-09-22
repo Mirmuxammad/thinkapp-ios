@@ -235,6 +235,10 @@ extension AddMarkViewController: CLLocationManagerDelegate {
 
 // MARK: - RangeUISliderDelegate
 extension AddMarkViewController: RangeUISliderDelegate {
+    func rangeChangeFinished(event: RangeUISliderChangeFinishedEvent) {
+        
+    }
+    
     
     func rangeChangeFinished(minValueSelected: CGFloat, maxValueSelected: CGFloat, slider: RangeUISlider) {
     

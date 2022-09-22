@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseFirestore
+//import FirebaseFirestore
 import AuthenticationServices
 import CryptoKit
 
@@ -129,18 +129,18 @@ extension LoginController: ASAuthorizationControllerDelegate {
                 let email = user.email ?? ""
                 let displayName = user.displayName ?? ""
                 guard let uid = Auth.auth().currentUser?.uid else { return }
-                let db = Firestore.firestore()
-                db.collection("User").document(uid).setData([
-                    "email": email,
-                    "displayName": displayName,
-                    "uid": uid
-                ]) { err in
-                    if let err = err {
-                        print("Error writing document: \(err)")
-                    } else {
-                        print("the user has sign up or is logged in")
-                    }
-                }
+//                let db = Firestore.firestore()
+//                db.collection("User").document(uid).setData([
+//                    "email": email,
+//                    "displayName": displayName,
+//                    "uid": uid
+//                ]) { err in
+//                    if let err = err {
+//                        print("Error writing document: \(err)")
+//                    } else {
+//                        print("the user has sign up or is logged in")
+//                    }
+//                }
                 
                 LoginAPI.fireLogin(token: uid) { [weak self] json in
                     print(json)
