@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>495291575433-ufv82uagf3dcft840nlhaaqkivrukc51.apps.googleusercontent.com</string>
+	<string>495291575433-3tmttnmv8u50j8f7r3mu124qk4lui71u.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.495291575433-ufv82uagf3dcft840nlhaaqkivrukc51</string>
+	<string>com.googleusercontent.apps.495291575433-3tmttnmv8u50j8f7r3mu124qk4lui71u</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>495291575433-pabrb01glo9b0gemnbvtq3gsimpnoaer.apps.googleusercontent.com</string>
+	<string>495291575433-eb80gc0rhdgbgklkj5lef2soheerv001.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBF0aGCVDe_RQ_A-8N7YT40KhcQPAERWYY</string>
+	<string>AIzaSyDQo3B1BvnJYm6Fs-aNoHm4P_-FSGpchnU</string>
 	<key>GCM_SENDER_ID</key>
 	<string>495291575433</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>none.thinkapp-ios</string>
+	<string>jele.thinkapp-ios</string>
 	<key>PROJECT_ID</key>
 	<string>think-1662016012747</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:495291575433:ios:b1c89aab5964c9903dea58</string>
+	<string>1:495291575433:ios:cf14c91e09e96dc53dea58</string>
 </dict>
 </plist>
