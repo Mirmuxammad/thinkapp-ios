@@ -10,10 +10,11 @@ import GoogleMaps
 import SnapKit
 
 class MainMapView: UIView {
-
-    let mapView: GMSMapView = {
-        let map = GMSMapView()
-        map.camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+    
+    var mapView: GMSMapView = {
+        var map = GMSMapView()
+        let camera = GMSCameraPosition.camera(withLatitude: 37.6173, longitude: 55.7558, zoom: 10.0)
+        map = GMSMapView.map(withFrame: .zero, camera: camera)
         return map
     }()
     

@@ -9,10 +9,14 @@ import UIKit
 import MapKit
 
 class CustomAnnotationView: UIView {
+
+    var viewClass: Int = 0
+    var markInfo: MapMarkResponce?
+    
     
     let contenerViwe: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
         return view
     }()
     
@@ -26,16 +30,24 @@ class CustomAnnotationView: UIView {
     let avatar: UIImageView = {
        let img = UIImageView()
        img.layer.cornerRadius = img.layer.frame.height / 2
-        img.image = UIImage(systemName: "person")
+        img.image = UIImage(named: "user")
        return img
     }()
     
     let nameTitle: UILabel = {
         let label = UILabel()
         label.text = "eva trost"
-        label.font = BaseFont.syneRegular(with: 16)
+        label.font = label.font.withSize(13)
         label.textAlignment = .center
         label.text?.suffix(1).uppercased()
+        return label
+    }()
+    
+    let onlineTitle: UILabel = {
+       let label = UILabel()
+        label.text = "online"
+        label.textColor = .gray
+        label.font = label.font.withSize(10)
         return label
     }()
     
@@ -56,7 +68,7 @@ class CustomAnnotationView: UIView {
     let springyLable: UILabel = {
        let label = UILabel()
         label.text = "T"
-        label.font = BaseFont.syneBolt(with: 12)
+        label.font = label.font.withSize(12)
         label.textColor = .white
         return label
     }()
@@ -64,7 +76,7 @@ class CustomAnnotationView: UIView {
     let textLabel: UILabel = {
        let label = UILabel()
         label.text = "Я бегать в 14 00, кто со мной?"
-        label.font = BaseFont.syneRegular(with: 15)
+        label.font = label.font.withSize(12)
         label.textAlignment = .left
         label.numberOfLines = 0
         return label
@@ -86,6 +98,12 @@ class CustomAnnotationView: UIView {
         return label
     }()
     
+    let backButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        return button
+    }()
+    
     private let containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -95,16 +113,44 @@ class CustomAnnotationView: UIView {
         return stackView
     }()
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        addViews()
-        addConstraints()
+    
+    // MARK: - Initializers
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+            addViews()
+        
+        upDate()
     }
- 
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+   
+     func upDate() {
+        if markInfo?.user.online == false {
+            onlineIndicator.backgroundColor = .gray
+            onlineTitle.text = "Offline"
+        } else {
+            onlineIndicator.backgroundColor = .green
+            onlineTitle.text = "Online"
+        }
+        if markInfo?.user.name == "" {
+            nameTitle.isHidden = true
+        } else {
+            nameTitle.isHidden = false
+            nameTitle.text = markInfo?.user.name
+        }
+        springyLable.text = markInfo?.user.name?.first?.uppercased()
+        textLabel.text = markInfo?.text
+    }
+    
     private func addViews() {
         addSubview(contenerViwe)
         contenerViwe.addSubview(containerStackView)
+        contenerViwe.addSubview(backButton)
         containerStackView.addSubview(nameTitle)
+        containerStackView.addSubview(onlineTitle)
         containerStackView.addSubview(avatar)
         avatar.addSubview(onlineIndicator)
         containerStackView.addSubview(springyViewFirst)
@@ -115,11 +161,15 @@ class CustomAnnotationView: UIView {
         containerStackView.addSubview(locationLabel)
     }
     
-    private func addConstraints() {
+     func addConstraints() {
         
         contenerViwe.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.top.left.bottom.right.equalToSuperview()
+            make.top.bottom.right.left.equalToSuperview()
+        }
+        
+        backButton.snp.makeConstraints { make in
+            make.top.bottom.right.left.equalToSuperview()
         }
         
         containerStackView.snp.makeConstraints { make in
@@ -130,14 +180,19 @@ class CustomAnnotationView: UIView {
         }
         
         avatar.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(5)
-            make.top.equalToSuperview().offset(5)
+            make.left.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(10)
             make.height.width.equalTo(42)
         }
         
         nameTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(5)
-            make.left.equalTo(avatar.snp.right).offset(5)
+            make.top.equalToSuperview().offset(15)
+            make.left.equalTo(avatar.snp.right).offset(10)
+        }
+        
+        onlineTitle.snp.makeConstraints { make in
+            make.top.equalTo(nameTitle.snp.bottom).offset(5)
+            make.left.equalTo(nameTitle.snp.left)
         }
         
         onlineIndicator.snp.makeConstraints { make in
@@ -148,8 +203,8 @@ class CustomAnnotationView: UIView {
         
         springyViewFirst.snp.makeConstraints { make in
             make.centerY.equalTo(avatar.snp.centerY)
-            make.left.equalTo(nameTitle.snp.right).offset(5)
-            make.right.equalToSuperview().offset(-5)
+            make.left.equalTo(nameTitle.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-10)
             make.height.width.equalTo(20)
         }
         
@@ -171,7 +226,7 @@ class CustomAnnotationView: UIView {
         locationImage.snp.makeConstraints { make in
             make.top.equalTo(textLabel.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-10)
             make.height.width.equalTo(15)
         }
         
@@ -179,7 +234,7 @@ class CustomAnnotationView: UIView {
             make.centerY.equalTo(locationImage.snp.centerY)
             make.left.equalTo(locationImage.snp.right).offset(10)
             make.right.equalToSuperview().offset(-10)
-            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-10)
         }
         
         avatar.layer.cornerRadius = avatar.layer.frame.height / 2
@@ -188,4 +243,80 @@ class CustomAnnotationView: UIView {
         onlineIndicator.layer.cornerRadius = onlineIndicator.layer.frame.height / 2
         
     }
+    
+    func addConstraintsNotText() {
+        contenerViwe.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.top.bottom.right.left.equalToSuperview()
+        }
+        
+        backButton.snp.makeConstraints { make in
+            make.top.bottom.right.left.equalToSuperview()
+        }
+        
+        containerStackView.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalToSuperview()
+        }
+        
+        avatar.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(10)
+            make.height.width.equalTo(42)
+        }
+        
+        nameTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(15)
+            make.left.equalTo(avatar.snp.right).offset(10)
+        }
+        
+        onlineTitle.snp.makeConstraints { make in
+            make.top.equalTo(nameTitle.snp.bottom).offset(5)
+            make.left.equalTo(nameTitle.snp.left)
+        }
+        
+        onlineIndicator.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.width.equalTo(6)
+        }
+        
+        springyViewFirst.snp.makeConstraints { make in
+            make.centerY.equalTo(avatar.snp.centerY)
+            make.left.equalTo(nameTitle.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.height.width.equalTo(20)
+        }
+        
+        springyViewSecond.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.width.equalTo(16)
+        }
+        
+        springyLable.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        locationImage.snp.makeConstraints { make in
+            make.top.equalTo(avatar.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+            make.height.width.equalTo(15)
+        }
+        
+        locationLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(locationImage.snp.centerY)
+            make.left.equalTo(locationImage.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-10)
+        }
+        
+        avatar.layer.cornerRadius = avatar.layer.frame.height / 2
+        springyViewFirst.layer.cornerRadius = springyViewFirst.layer.frame.height / 2
+        springyViewSecond.layer.cornerRadius = springyViewSecond.layer.frame.height / 2
+        onlineIndicator.layer.cornerRadius = onlineIndicator.layer.frame.height / 2
+    }
+   
 }

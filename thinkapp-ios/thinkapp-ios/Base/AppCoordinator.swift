@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 class AppCoordinator: NSObject {
     
@@ -28,12 +29,15 @@ class AppCoordinator: NSObject {
     private func startScreenFlow() {
         
         GMSServices.provideAPIKey("AIzaSyBF0aGCVDe_RQ_A-8N7YT40KhcQPAERWYY")
+        GMSPlacesClient.provideAPIKey("AIzaSyBF0aGCVDe_RQ_A-8N7YT40KhcQPAERWYY")
+        
         let navController = UINavigationController()
         router = MainRouter(navigationController: navController)
         if UserDefaults.standard.value(forKey: "authToken") == nil {
             router?.pushLogin()
         } else {
             router?.pushMainMap()
+            print("📍")
             print(UserDefaults.standard.value(forKey: "authToken"))
         }
         

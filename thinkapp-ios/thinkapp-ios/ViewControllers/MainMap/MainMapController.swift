@@ -7,6 +7,8 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
+
 
 class MainMapController: UIViewController, Routable {
     
@@ -19,6 +21,10 @@ class MainMapController: UIViewController, Routable {
     private let baseView: MainMapView = MainMapView()
     
     private let locationManager = CLLocationManager()
+    
+    private var showMarker: Bool = true
+    
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +32,10 @@ class MainMapController: UIViewController, Routable {
         baseView.filtersAddTarget(target: self, action: #selector(getFilters))
         baseView.addMarkAddTarget(target: self, action: #selector(addMark))
         
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = baseView.mapView
+        
         baseView.mapView.delegate = self
         baseView.mapView.isMyLocationEnabled = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,12 +96,7 @@ class MainMapController: UIViewController, Routable {
         }
     }
     
-    private func showMark() {
-        for location in mapMarks {
-            let marker = GMSMarker()
-            marker.iconView = customMarker
-        }
-    }
+    
     
     private func setupTileRenderer() {
         let template = "https://api.maptiler.com/maps/basic-4326/{z}/{x}/{y}.png"
@@ -127,6 +125,7 @@ class MainMapController: UIViewController, Routable {
         baseView.activityIndicator.startAnimating()
         MapAPI.getMapMarker { [weak self] jsonData in
             self?.mapMarks = jsonData
+            self?.showCurrentLocationOnMap()
             self?.baseView.activityIndicator.stopAnimating()
         } failure: { error in
             let alert = UIAlertController(title: "Ошибка", message: error?.message, preferredStyle: .alert)
@@ -135,8 +134,106 @@ class MainMapController: UIViewController, Routable {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func showCurrentLocationOnMap(){
+        baseView.mapView.settings.myLocationButton = true
+        baseView.mapView.isMyLocationEnabled = true
+        
+        for data in mapMarks {
+            
+            let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
+            customMark.layer.cornerRadius = 5
+            customMark.backgroundColor = .white
+            customMark.mapMark = data
+            
+            let location = CLLocationCoordinate2D(latitude: data.location.lat, longitude: data.location.lon)
+            
+            
+            let marker = GMSMarker()
+            marker.position = location
+            
+            marker.iconView = customMark
+            marker.map = baseView.mapView
+            
+        }
+        addPlaceMarkers()
+    }
+    private func addPlaceMarkers() {
+        let coordintates: [CLLocationCoordinate2D] = [
+            CLLocationCoordinate2D(latitude: 37.6173, longitude: 55.7558),
+            CLLocationCoordinate2D(latitude: 37.6173, longitude: 56.7558),
+            CLLocationCoordinate2D(latitude: 37.6173, longitude: 57.7558)
+        ]
+        
+        for coordintate in coordintates {
+            
+            let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
+            customMark.layer.cornerRadius = 5
+            customMark.backgroundColor = .white
+            
+            
+            let marker = GMSMarker()
+            marker.position = coordintate
+            marker.map = baseView.mapView
+            
+            customMark.contenerViwe.layer.cornerRadius = 5
+            marker.iconView = customMark
+        }
+    }
+    
+    
 }
 
 extension MainMapController: GMSMapViewDelegate {
     
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        let markerInfoView = CustomAnnotationView(frame: CGRect(x: 0, y: 0, width: 157, height: 195))
+        let markerInfoViewNotText = CustomAnnotationView(frame: CGRect(x: 0, y: 0, width: 157, height: 100))
+        let markerInfo = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
+        if showMarker == true {
+            UIView.animate(withDuration: 1) {
+                if markerInfo.mapMark?.text == "" {
+                    markerInfoView.addConstraints()
+                    markerInfo.mapMark = markerInfoView.markInfo
+                    marker.iconView = markerInfo
+                } else {
+                    markerInfoViewNotText.addConstraintsNotText()
+                    markerInfo.mapMark = markerInfoViewNotText.markInfo
+                    marker.iconView = markerInfoViewNotText
+                }
+            }
+        } else {
+            UIView.animate(withDuration: 1) {
+                markerInfoView.markInfo = markerInfo.mapMark
+                marker.iconView = markerInfo
+                marker.iconView?.backgroundColor = .white
+            }
+        }
+        showMarker = !showMarker
+        return true
+    }
+    
+    func mapView( _ mapView: GMSMapView, markerInfoContents marker: GMSMarker ) -> UIView? {
+        
+       let infoView = CustomAnnotationView(frame: CGRect(x: 0, y: 0, width: 157, height: 195))
+
+        
+
+        return infoView
+    }
+    
+}
+extension MainMapController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last?.coordinate {
+            let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 10.0)
+            baseView.mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        }
+        self.showCurrentLocationOnMap()
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+    }
 }
