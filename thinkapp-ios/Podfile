@@ -12,6 +12,8 @@ target 'thinkapp-ios' do
   #pod 'FirebaseFirestore'
   pod 'GoogleMaps', '7.1.0'
   pod 'GooglePlaces'
+  pod 'SDWebImage'
+  pod 'IQKeyboardManagerSwift'
   # Pods for thinkapp-ios
 
 end

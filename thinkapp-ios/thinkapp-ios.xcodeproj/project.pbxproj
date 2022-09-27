@@ -10,9 +10,13 @@
 		045462C928D1F61F002473A7 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462C828D1F61F002473A7 /* SignUpController.swift */; };
 		045462CB28D1F665002473A7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045462CA28D1F665002473A7 /* SignUpView.swift */; };
 		04820AFC28D4AB8A008F0720 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04820AFB28D4AB8A008F0720 /* ChatController.swift */; };
-		04820AFE28D4ADC9008F0720 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04820AFD28D4ADC9008F0720 /* ChatView.swift */; };
 		04DE246728D9B4DF00B8E6F4 /* MeChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE246628D9B4DF00B8E6F4 /* MeChatCell.swift */; };
 		04DE246928D9B4EA00B8E6F4 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE246828D9B4EA00B8E6F4 /* ChatCell.swift */; };
+		04F1156B28E31F9700F5283F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F1156A28E31F9700F5283F /* GoogleService-Info.plist */; };
+		04F1156E28E320A500F5283F /* ChatVideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1156C28E320A500F5283F /* ChatVideoPreview.swift */; };
+		04F1156F28E320A500F5283F /* ChatPhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1156D28E320A500F5283F /* ChatPhotoPreview.swift */; };
+		04F1157228E320B000F5283F /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1157028E320B000F5283F /* WelcomeCell.swift */; };
+		04F1157328E320B000F5283F /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F1157128E320B000F5283F /* WelcomeCell.xib */; };
 		400BC44728D476B600F42081 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44628D476B600F42081 /* MapAPI.swift */; };
 		400BC44928D47A0300F42081 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44828D47A0300F42081 /* RequestInterceptor.swift */; };
 		400BC44C28D47B7000F42081 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC44B28D47B7000F42081 /* UserDefaults.swift */; };
@@ -22,7 +26,6 @@
 		400BC45628D48CED00F42081 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BC45528D48CED00F42081 /* LoginAPI.swift */; };
 		4040370828D86B3600121306 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040370728D86B3600121306 /* UserModel.swift */; };
 		4040370C28D88F0100121306 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040370B28D88F0100121306 /* CustomAnnotationView.swift */; };
-		40C1299128DC62CD0075D921 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40C1299028DC62CD0075D921 /* GoogleService-Info.plist */; };
 		40F220D528E17C5000886AFF /* CustomMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F220D428E17C5000886AFF /* CustomMarkerView.swift */; };
 		43457B6928CE765100122DE5 /* FiltersCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6828CE765100122DE5 /* FiltersCellType.swift */; };
 		43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */; };
@@ -63,9 +66,13 @@
 		045462C828D1F61F002473A7 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		045462CA28D1F665002473A7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		04820AFB28D4AB8A008F0720 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
-		04820AFD28D4ADC9008F0720 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		04DE246628D9B4DF00B8E6F4 /* MeChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeChatCell.swift; sourceTree = "<group>"; };
 		04DE246828D9B4EA00B8E6F4 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		04F1156A28E31F9700F5283F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../var/folders/wz/x08kg5ys547c25x_y5g_8hlc0000gq/T/ru.keepcoder.Telegram/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04F1156C28E320A500F5283F /* ChatVideoPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVideoPreview.swift; sourceTree = "<group>"; };
+		04F1156D28E320A500F5283F /* ChatPhotoPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPhotoPreview.swift; sourceTree = "<group>"; };
+		04F1157028E320B000F5283F /* WelcomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
+		04F1157128E320B000F5283F /* WelcomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
 		400BC44628D476B600F42081 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
 		400BC44828D47A0300F42081 /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		400BC44B28D47B7000F42081 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -75,7 +82,6 @@
 		400BC45528D48CED00F42081 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		4040370728D86B3600121306 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4040370B28D88F0100121306 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
-		40C1299028DC62CD0075D921 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/Telegram Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40F220D428E17C5000886AFF /* CustomMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarkerView.swift; sourceTree = "<group>"; };
 		43457B6828CE765100122DE5 /* FiltersCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersCellType.swift; sourceTree = "<group>"; };
 		43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkTableView.swift; sourceTree = "<group>"; };
@@ -140,9 +146,12 @@
 			isa = PBXGroup;
 			children = (
 				04820AFB28D4AB8A008F0720 /* ChatController.swift */,
-				04820AFD28D4ADC9008F0720 /* ChatView.swift */,
 				04DE246628D9B4DF00B8E6F4 /* MeChatCell.swift */,
 				04DE246828D9B4EA00B8E6F4 /* ChatCell.swift */,
+				04F1156D28E320A500F5283F /* ChatPhotoPreview.swift */,
+				04F1156C28E320A500F5283F /* ChatVideoPreview.swift */,
+				04F1157028E320B000F5283F /* WelcomeCell.swift */,
+				04F1157128E320B000F5283F /* WelcomeCell.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -282,8 +291,8 @@
 				E08B3CCE28BE1BF300140D22 /* Constants.swift */,
 				E08B3CC828BE19EC00140D22 /* Assets.xcassets */,
 				E014D7F728BE19390079FEFB /* LaunchScreen.storyboard */,
+				04F1156A28E31F9700F5283F /* GoogleService-Info.plist */,
 				E014D7FA28BE19390079FEFB /* Info.plist */,
-				40C1299028DC62CD0075D921 /* GoogleService-Info.plist */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -404,9 +413,10 @@
 				E08B3CD828BE266200140D22 /* Inter-Regular.otf in Resources */,
 				E08B3CD628BE265E00140D22 /* Syne-Bold.ttf in Resources */,
 				E014D7F928BE19390079FEFB /* LaunchScreen.storyboard in Resources */,
+				04F1157328E320B000F5283F /* WelcomeCell.xib in Resources */,
 				E08B3CD928BE266400140D22 /* Syne-Regular.ttf in Resources */,
 				E08B3CD728BE266000140D22 /* Inter-Medium.otf in Resources */,
-				40C1299128DC62CD0075D921 /* GoogleService-Info.plist in Resources */,
+				04F1156B28E31F9700F5283F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F1157228E320B000F5283F /* WelcomeCell.swift in Sources */,
 				E08B3CCF28BE1BF300140D22 /* Constants.swift in Sources */,
 				04DE246728D9B4DF00B8E6F4 /* MeChatCell.swift in Sources */,
 				400BC45028D47C8000F42081 /* NetworkError.swift in Sources */,
@@ -484,6 +495,7 @@
 				43457B7128CE890A00122DE5 /* AddMarkCellType.swift in Sources */,
 				400BC44728D476B600F42081 /* MapAPI.swift in Sources */,
 				E00D78EB28C0E7D600D1214A /* MainMapView.swift in Sources */,
+				04F1156E28E320A500F5283F /* ChatVideoPreview.swift in Sources */,
 				E08B3CCD28BE1A3400140D22 /* MainRouter.swift in Sources */,
 				4040370828D86B3600121306 /* UserModel.swift in Sources */,
 				43457B6B28CE7DFF00122DE5 /* AddMarkTableView.swift in Sources */,
@@ -493,6 +505,7 @@
 				400BC44928D47A0300F42081 /* RequestInterceptor.swift in Sources */,
 				E014D7ED28BE19380079FEFB /* AppDelegate.swift in Sources */,
 				E00D78EF28C1034700D1214A /* AdventureMapOverlay.swift in Sources */,
+				04F1156F28E320A500F5283F /* ChatPhotoPreview.swift in Sources */,
 				E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */,
 				4354661328CAFD550084AAA4 /* MaxDistanceCell.swift in Sources */,
 				400BC44E28D47C0000F42081 /* BaseAPI.swift in Sources */,
@@ -513,7 +526,6 @@
 				04DE246928D9B4EA00B8E6F4 /* ChatCell.swift in Sources */,
 				4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */,
 				04820AFC28D4AB8A008F0720 /* ChatController.swift in Sources */,
-				04820AFE28D4ADC9008F0720 /* ChatView.swift in Sources */,
 				43457B6F28CE80D200122DE5 /* AddMarkCell.swift in Sources */,
 				4040370C28D88F0100121306 /* CustomAnnotationView.swift in Sources */,
 				E08B3CE028BE39FC00140D22 /* LoginController.swift in Sources */,

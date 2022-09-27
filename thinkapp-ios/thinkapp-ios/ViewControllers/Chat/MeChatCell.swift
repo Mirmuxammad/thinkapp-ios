@@ -38,7 +38,7 @@ class MeChatCell: UITableViewCell {
     private let chatStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .leading
+        stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 10
         return stackView
@@ -53,6 +53,18 @@ class MeChatCell: UITableViewCell {
         button.isHidden = true
 //        button.addTarget(self, action: #selector(openFileButtonDidTap), for: .touchUpInside)
         return button
+    }()
+    
+    private let imagePreview: ChatPhotoView = {
+        let view = ChatPhotoView()
+        view.isHidden = false
+        return view
+    }()
+    
+    private let videoPreview: ChatVideoPreview = {
+        let view = ChatVideoPreview()
+        view.isHidden = true
+        return view
     }()
     
     private let dateLabel: UILabel = {
@@ -124,6 +136,8 @@ class MeChatCell: UITableViewCell {
         containerView.addSubview(chatStack)
         chatStack.addArrangedSubview(chatLabel)
         chatStack.addArrangedSubview(attachmentButton)
+        chatStack.addArrangedSubview(imagePreview)
+        chatStack.addArrangedSubview(videoPreview)
     }
     
     private func setupConstraints() {
@@ -151,6 +165,14 @@ class MeChatCell: UITableViewCell {
         
         attachmentButton.snp.makeConstraints { make in
             make.height.equalTo(20)
+        }
+        
+        imagePreview.snp.makeConstraints { make in
+            make.height.equalTo(150)
+        }
+        
+        videoPreview.snp.makeConstraints { make in
+            make.height.equalTo(150)
         }
         
     }

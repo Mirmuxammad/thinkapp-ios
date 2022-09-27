@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="157" id="KGk-i7-Jjw" customClass="WelcomeCell" customModule="thinkapp_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="157"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="348" height="157"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iK3-Kb-AyD">
+                        <rect key="frame" x="0.0" y="5" width="348" height="150"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="panda" translatesAutoresizingMaskIntoConstraints="NO" id="NPv-Hy-jIa">
+                                <rect key="frame" x="0.0" y="0.0" width="348" height="150"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NPv-Hy-jIa" firstAttribute="top" secondItem="iK3-Kb-AyD" secondAttribute="top" id="GAl-tN-iC5"/>
+                            <constraint firstAttribute="height" constant="150" id="KmR-UX-aHn"/>
+                            <constraint firstItem="NPv-Hy-jIa" firstAttribute="leading" secondItem="iK3-Kb-AyD" secondAttribute="leading" id="gAa-17-8Qp"/>
+                            <constraint firstAttribute="bottom" secondItem="NPv-Hy-jIa" secondAttribute="bottom" id="lxa-RM-bnE"/>
+                            <constraint firstAttribute="trailing" secondItem="NPv-Hy-jIa" secondAttribute="trailing" id="tK3-5j-UW7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="iK3-Kb-AyD" secondAttribute="bottom" constant="5" id="9tf-9b-JBb"/>
+                    <constraint firstItem="iK3-Kb-AyD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MBg-eh-raD"/>
+                    <constraint firstItem="iK3-Kb-AyD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="hcv-72-H2J"/>
+                    <constraint firstAttribute="trailing" secondItem="iK3-Kb-AyD" secondAttribute="trailing" id="uF1-y0-d1e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <point key="canvasLocation" x="63.076923076923073" y="60.071090047393362"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="panda" width="338" height="338"/>
+    </resources>
+</document>

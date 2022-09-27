@@ -30,6 +30,15 @@ class ChatCell: UITableViewCell {
         return imageView
     }()
     
+    private let chatStack: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 10
+        return stackView
+    }()
+    
     private let chatLabel: UILabel = {
         let label = UILabel()
         label.text = "Hey,Girl wanna go for a run together?"
@@ -37,6 +46,29 @@ class ChatCell: UITableViewCell {
         label.textColor = .black
         label.numberOfLines = 0
         return label
+    }()
+    
+    private let attachmentButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("  photo.jpg", for: .normal)
+        button.setImage(UIImage(named: "attach"), for: .normal)
+        button.tintColor = .white
+        button.titleLabel?.textAlignment = .left
+        button.isHidden = true
+//        button.addTarget(self, action: #selector(openFileButtonDidTap), for: .touchUpInside)
+        return button
+    }()
+    
+    private let imagePreview: ChatPhotoView = {
+        let view = ChatPhotoView()
+        view.isHidden = true
+        return view
+    }()
+    
+    private let videoPreview: ChatVideoPreview = {
+        let view = ChatVideoPreview()
+        view.isHidden = false
+        return view
     }()
     
     private let dateLabel: UILabel = {
@@ -72,7 +104,11 @@ class ChatCell: UITableViewCell {
         contentView.addSubview(containerView)
         contentView.addSubview(logoImageView)
         contentView.addSubview(dateLabel)
-        containerView.addSubview(chatLabel)
+        containerView.addSubview(chatStack)
+        chatStack.addArrangedSubview(chatLabel)
+        chatStack.addArrangedSubview(attachmentButton)
+        chatStack.addArrangedSubview(imagePreview)
+        chatStack.addArrangedSubview(videoPreview)
     }
     
     private func setupConstraints() {
@@ -97,11 +133,23 @@ class ChatCell: UITableViewCell {
             make.height.equalTo(22)
         }
         
-        chatLabel.snp.makeConstraints { make in
+        chatStack.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(18)
             make.bottom.equalToSuperview().offset(-18)
             make.left.equalToSuperview().offset(18)
             make.right.equalToSuperview().offset(-18)
+        }
+        
+        attachmentButton.snp.makeConstraints { make in
+            make.height.equalTo(20)
+        }
+        
+        imagePreview.snp.makeConstraints { make in
+            make.height.equalTo(150)
+        }
+        
+        videoPreview.snp.makeConstraints { make in
+            make.height.equalTo(150)
         }
         
     }
