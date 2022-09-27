@@ -95,8 +95,8 @@ extension FiltersViewController: UITableViewDataSource {
     }
     
     @objc private func back() {
-//        router?.back()
-        router?.pushChat()
+        router?.back()
+//        router?.pushChat()
     }
 }
 
