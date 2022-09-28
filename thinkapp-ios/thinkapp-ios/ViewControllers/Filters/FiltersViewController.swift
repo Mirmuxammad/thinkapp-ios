@@ -22,7 +22,7 @@ class FiltersViewController: UIViewController, Routable {
     // MARK: - Initializers
     init() {
         super.init(nibName: nil, bundle: nil)
-        dataSourceArray = [.GenderPreference, .MaxDistance, .AgeRange, .DoneButton]
+        dataSourceArray = [.BackButton, .GenderPreference, .MaxDistance, .AgeRange, .DoneButton]
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +44,7 @@ class FiltersViewController: UIViewController, Routable {
     
     // MARK: - Private Methods
     private func registerCells() {
+        table.tableView.register(BackButtonCell.self, forCellReuseIdentifier: BackButtonCell.identifier)
         table.tableView.register(GenderPreferenceCell.self, forCellReuseIdentifier: GenderPreferenceCell.identifier)
         table.tableView.register(MaxDistanceCell.self, forCellReuseIdentifier: MaxDistanceCell.identifier)
         table.tableView.register(AgeRangeCell.self, forCellReuseIdentifier: AgeRangeCell.identifier)
@@ -65,7 +66,12 @@ extension FiltersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let typeCell = dataSourceArray[indexPath.row]
-        switch typeCell {            
+        switch typeCell {
+        case .BackButton:
+            let backButtonCell = tableView.dequeueReusableCell(withIdentifier: BackButtonCell.identifier,
+                                                                     for: indexPath) as! BackButtonCell
+            backButtonCell.backAddTarget(target: self, action: #selector(back))
+            return backButtonCell
         case .GenderPreference:
             let genderPreferenceCell = tableView.dequeueReusableCell(withIdentifier: GenderPreferenceCell.identifier,
                                                                      for: indexPath) as! GenderPreferenceCell

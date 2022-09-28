@@ -39,6 +39,8 @@
 		4354661528CAFD880084AAA4 /* AgeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661428CAFD880084AAA4 /* AgeRangeCell.swift */; };
 		4354661728CAFDAC0084AAA4 /* DoneButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661628CAFDAC0084AAA4 /* DoneButtonCell.swift */; };
 		4354661928CAFE4F0084AAA4 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354661828CAFE4F0084AAA4 /* FiltersViewController.swift */; };
+		7FDC7F8A28E489F500BEA5F6 /* BackButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC7F8928E489F500BEA5F6 /* BackButtonCell.swift */; };
+		7FDC7F8C28E48AD300BEA5F6 /* UserGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC7F8B28E48AD300BEA5F6 /* UserGender.swift */; };
 		DEF961E6E93F6A7A9597E801 /* Pods_thinkapp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006BD91FAC3D5F13AC5F4962 /* Pods_thinkapp_ios.framework */; };
 		E00D78E628C0BA7400D1214A /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E528C0BA7400D1214A /* WelcomeController.swift */; };
 		E00D78E828C0BA8400D1214A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D78E728C0BA8400D1214A /* WelcomeView.swift */; };
@@ -96,6 +98,8 @@
 		4354661628CAFDAC0084AAA4 /* DoneButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonCell.swift; sourceTree = "<group>"; };
 		4354661828CAFE4F0084AAA4 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		64C47F6647DF25C0A933BC6E /* Pods-thinkapp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.debug.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		7FDC7F8928E489F500BEA5F6 /* BackButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonCell.swift; sourceTree = "<group>"; };
+		7FDC7F8B28E48AD300BEA5F6 /* UserGender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGender.swift; sourceTree = "<group>"; };
 		BDEFFB997B9B34442D309467 /* Pods-thinkapp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thinkapp-ios.release.xcconfig"; path = "Target Support Files/Pods-thinkapp-ios/Pods-thinkapp-ios.release.xcconfig"; sourceTree = "<group>"; };
 		E00D78E528C0BA7400D1214A /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		E00D78E728C0BA8400D1214A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				400BC45328D47DE300F42081 /* MapMark.swift */,
+				7FDC7F8B28E48AD300BEA5F6 /* UserGender.swift */,
 				4040370728D86B3600121306 /* UserModel.swift */,
 			);
 			path = Models;
@@ -207,6 +212,7 @@
 			children = (
 				43457B6C28CE7E3700122DE5 /* AddMarkViewController.swift */,
 				43457B6A28CE7DFF00122DE5 /* AddMarkTableView.swift */,
+				7FDC7F8928E489F500BEA5F6 /* BackButtonCell.swift */,
 				43457B6E28CE80D200122DE5 /* AddMarkCell.swift */,
 				43457B7228CF003100122DE5 /* MyMessageCell.swift */,
 				43457B7028CE890A00122DE5 /* AddMarkCellType.swift */,
@@ -494,6 +500,8 @@
 				E08B3CCC28BE1A3400140D22 /* AppCoordinator.swift in Sources */,
 				43457B7128CE890A00122DE5 /* AddMarkCellType.swift in Sources */,
 				400BC44728D476B600F42081 /* MapAPI.swift in Sources */,
+				7FDC7F8A28E489F500BEA5F6 /* BackButtonCell.swift in Sources */,
+				7FDC7F8C28E48AD300BEA5F6 /* UserGender.swift in Sources */,
 				E00D78EB28C0E7D600D1214A /* MainMapView.swift in Sources */,
 				04F1156E28E320A500F5283F /* ChatVideoPreview.swift in Sources */,
 				E08B3CCD28BE1A3400140D22 /* MainRouter.swift in Sources */,

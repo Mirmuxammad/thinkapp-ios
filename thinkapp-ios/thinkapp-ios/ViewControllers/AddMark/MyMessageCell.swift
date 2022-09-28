@@ -11,7 +11,7 @@ import SnapKit
 class MyMessageCell: UITableViewCell {
     
     static let identifier = "MyMessageCell"
-    
+    var doneDelegate: MyMessageCellDelegate!
     // MARK: - Private Properties
     let myMessageLabel: UILabel = {
         let label = UILabel()
@@ -46,6 +46,7 @@ class MyMessageCell: UITableViewCell {
         configureCell()
         addViews()
         addConstraints()
+        toolBarSetup()
     }
     
     required init(coder: NSCoder) {
@@ -61,6 +62,22 @@ class MyMessageCell: UITableViewCell {
         contentView.addSubview(myMessageLabel)
         contentView.addSubview(myMessageFieldImageView)
         contentView.addSubview(myMessageTextView)
+    }
+    
+    func toolBarSetup() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissKeyboard))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard));
+        toolBar.setItems([cancelButton, spaceButton, button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+
+        myMessageTextView.inputAccessoryView = toolBar
+    }
+    
+    @objc func dismissKeyboard() {
+        doneDelegate?.didDoneTapped()
     }
     
     private func addConstraints() {
@@ -86,4 +103,9 @@ class MyMessageCell: UITableViewCell {
             make.bottom.equalTo(myMessageFieldImageView.snp.bottom).offset(-24)
         }
     }
+}
+
+//MARK: MyMessageCellDelegate toolbar btns tapped
+protocol MyMessageCellDelegate {
+    func didDoneTapped()
 }

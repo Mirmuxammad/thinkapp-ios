@@ -8,6 +8,7 @@
 import Foundation
 
 enum FiltersCellType {
+    case BackButton
     case GenderPreference
     case MaxDistance
     case AgeRange

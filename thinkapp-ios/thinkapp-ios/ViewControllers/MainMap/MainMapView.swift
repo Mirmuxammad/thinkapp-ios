@@ -97,6 +97,9 @@ class MainMapView: UIView {
     }
     
     private func addConstraints() {
+        
+        backButton.isHidden = true
+        
         mapView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

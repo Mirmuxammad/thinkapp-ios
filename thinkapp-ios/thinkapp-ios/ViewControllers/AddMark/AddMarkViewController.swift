@@ -30,11 +30,12 @@ class AddMarkViewController: UIViewController, Routable {
     
     // MARK: - Public Properties
     var router: MainRouter?
+    var userGender : UserGender = .female
     
     // MARK: - Initializers
     init() {
         super.init(nibName: nil, bundle: nil)
-        dataSourceArray = [.AddMark, .MaxDistance, .AgeRange, .MyMessage]
+        dataSourceArray = [.BackButton, .AddMark, .MaxDistance, .AgeRange, .MyMessage]
     }
     
     required init?(coder: NSCoder) {
@@ -46,6 +47,8 @@ class AddMarkViewController: UIViewController, Routable {
         super.viewDidLoad()
         registerCells()
         conformProtocols()
+        settingUpTextFieldEditing()
+        listenerTextFieldNotification()
     }
     
     override func viewWillLayoutSubviews() {
@@ -61,6 +64,7 @@ class AddMarkViewController: UIViewController, Routable {
     
     // MARK: - Private Methods
     private func registerCells() {
+        table.tableView.register(BackButtonCell.self, forCellReuseIdentifier: BackButtonCell.identifier)
         table.tableView.register(AddMarkCell.self, forCellReuseIdentifier: AddMarkCell.identifier)
         table.tableView.register(MaxDistanceCell.self, forCellReuseIdentifier: MaxDistanceCell.identifier)
         table.tableView.register(AgeRangeCell.self, forCellReuseIdentifier: AgeRangeCell.identifier)
@@ -134,11 +138,18 @@ extension AddMarkViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let typeCell = dataSourceArray[indexPath.row]
         switch typeCell {
+        case .BackButton:
+            let backBtnCell = tableView.dequeueReusableCell(withIdentifier: BackButtonCell.identifier,
+                                                                    for: indexPath) as!  BackButtonCell
+            backBtnCell.backAddTarget(target: self, action: #selector(backButton))
+            return backBtnCell
         case .AddMark:
             let addMarkCell = tableView.dequeueReusableCell(withIdentifier: AddMarkCell.identifier,
                                                                      for: indexPath) as! AddMarkCell
             addMarkCell.mapView.delegate = self
             mapView = addMarkCell.mapView
+            addMarkCell.genderBtnDelegate = self
+            addMarkCell.genderPreferenceButton.setTitle(userGender.rawValue, for: .normal)
             addMarkCell.plusAddTarget(target: self, action: #selector(back))
             return addMarkCell
         
@@ -163,7 +174,7 @@ extension AddMarkViewController: UITableViewDataSource {
         case .MyMessage:
             let myMessageCell = tableView.dequeueReusableCell(withIdentifier: MyMessageCell.identifier,
                                                              for: indexPath) as! MyMessageCell
-            
+            myMessageCell.doneDelegate = self
             myMessageCell.myMessageTextView.delegate = self
             return myMessageCell
         }
@@ -186,6 +197,10 @@ extension AddMarkViewController: UITableViewDataSource {
         
         print("back")
         print(mapView.centerCoordinate.longitude.debugDescription)
+        router?.back()
+    }
+    
+    @objc private func backButton() {
         router?.back()
     }
 }
@@ -268,4 +283,83 @@ extension AddMarkViewController: UITextViewDelegate {
             break
         }
     }
+    
+    ///add tap gesture in view for removing keyboar when textfild editing
+    private func settingUpTextFieldEditing() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    //Key board hide on outside the textfield
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    ///this func showed keybord when user touched textfield or textview
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            let h = keyboardSize.height - (self.view.frame.maxY - table.tableView.frame.maxY)
+         
+            if h > 0 {
+                self.table.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+                scrollToBottom()
+            }
+        }
+    }
+    
+    ///this func wil lhide keybord when user touched textfield or textview
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.table.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    ///scroll to bottom of tableview
+    private func scrollToBottom()  {
+        let point = CGPoint(x: 0, y: self.table.tableView.contentSize.height + self.table.tableView.contentInset.bottom - self.table.tableView.frame.height)
+            if point.y >= 0{
+                self.table.tableView.setContentOffset(point, animated: true)
+            }
+    }
+    
+    /// listener notification keyboard hide & show functions
+    private func listenerTextFieldNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+}
+
+//MARK: MyMessageCellDelegate this delegate worked when pressed toolbars btns in MyMessageCell
+extension AddMarkViewController: MyMessageCellDelegate {
+    func didDoneTapped() {
+        self.dismissKeyboard()
+    }
+}
+
+//MARK: - AddMarkCellDelegate this delegate worked when pressed gender btn in AddMarkCell
+extension AddMarkViewController: AddMarkCellDelegate {
+    func didGenderBtnTapped() {
+    
+        let alert = UIAlertController(title: "Choose your gender", message: "", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Male", style: .default, handler: { (_) in
+                self.userGender = .male
+                self.table.tableView.reloadData()
+            }))
+
+            alert.addAction(UIAlertAction(title: "Female", style: .default, handler: { (_) in
+                self.userGender = .female
+                self.table.tableView.reloadData()
+            }))
+
+            alert.addAction(UIAlertAction(title: "None", style: .destructive, handler: { (_) in
+                self.userGender = .none
+                self.table.tableView.reloadData()
+            }))
+
+            self.present(alert, animated: true, completion: {
+                
+            })
+    }
+    
 }

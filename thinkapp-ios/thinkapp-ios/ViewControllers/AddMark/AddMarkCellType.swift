@@ -8,6 +8,7 @@
 import Foundation
 
 enum AddMarkCellType {
+    case BackButton
     case AddMark
     case MaxDistance
     case AgeRange

@@ -12,7 +12,7 @@ import MapKit
 class AddMarkCell: UITableViewCell {
     
     static let identifier = "AddMarkCell"
-    
+    var genderBtnDelegate : AddMarkCellDelegate!
     // MARK: - Private Properties
     let mapView: MKMapView = {
         let map = MKMapView()
@@ -44,6 +44,7 @@ class AddMarkCell: UITableViewCell {
         button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
         button.setTitleColor(UIColor(hex: "000000"), for: .normal)
         button.contentHorizontalAlignment = .right
+        button.addTarget(self, action: #selector(genderBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -117,8 +118,17 @@ class AddMarkCell: UITableViewCell {
         }
     }
     
+    @objc func genderBtnTapped() {
+        genderBtnDelegate?.didGenderBtnTapped()
+    }
+    
     // MARK: - Public Methods
     func plusAddTarget(target: Any, action: Selector) {
         plusButton.addTarget(target, action: action, for: .touchUpInside)
     }
+}
+
+//MARK: - AddMarkCellDelegate
+protocol AddMarkCellDelegate {
+    func didGenderBtnTapped()
 }
