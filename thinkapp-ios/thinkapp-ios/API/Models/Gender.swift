@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum UserGender: String {
+enum Gender: String {
     case male = "Male"
     case female = "Female"
     case none = "None"

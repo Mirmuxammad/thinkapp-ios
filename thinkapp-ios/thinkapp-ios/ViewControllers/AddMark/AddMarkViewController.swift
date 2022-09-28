@@ -30,7 +30,7 @@ class AddMarkViewController: UIViewController, Routable {
     
     // MARK: - Public Properties
     var router: MainRouter?
-    var userGender : UserGender = .female
+    var userGender : Gender = .female
     
     // MARK: - Initializers
     init() {

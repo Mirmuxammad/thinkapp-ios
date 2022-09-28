@@ -18,7 +18,7 @@ class FiltersViewController: UIViewController, Routable {
     
     // MARK: - Public Properties
     var router: MainRouter?
-    
+    var gender : Gender = .female
     // MARK: - Initializers
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -75,6 +75,8 @@ extension FiltersViewController: UITableViewDataSource {
         case .GenderPreference:
             let genderPreferenceCell = tableView.dequeueReusableCell(withIdentifier: GenderPreferenceCell.identifier,
                                                                      for: indexPath) as! GenderPreferenceCell
+            genderPreferenceCell.genderBtnDelegate = self
+            genderPreferenceCell.genderPreferenceButton.setTitle(gender.rawValue, for: .normal)
             return genderPreferenceCell
         
         case .MaxDistance:
@@ -131,5 +133,31 @@ extension FiltersViewController: RangeUISliderDelegate {
         default:
             break
         }
+    }
+}
+
+//MARK: - FiltersViewController this delegate worked when pressed gender btn in GenderPreferenceCell
+extension FiltersViewController: GenderPreferenceCellDelegate {
+    func didGenderBtnTapped() {
+    
+        let alert = UIAlertController(title: "Choose your gender", message: "", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Male", style: .default, handler: { (_) in
+                self.gender = .male
+                self.table.tableView.reloadData()
+            }))
+
+            alert.addAction(UIAlertAction(title: "Female", style: .default, handler: { (_) in
+                self.gender = .female
+                self.table.tableView.reloadData()
+            }))
+
+            alert.addAction(UIAlertAction(title: "None", style: .destructive, handler: { (_) in
+                self.gender = .none
+                self.table.tableView.reloadData()
+            }))
+
+            self.present(alert, animated: true, completion: {
+                
+            })
     }
 }

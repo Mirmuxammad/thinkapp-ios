@@ -11,7 +11,7 @@ import SnapKit
 class GenderPreferenceCell: UITableViewCell {
     
     static let identifier = "GenderPreferenceCell"
-    
+    var genderBtnDelegate : GenderPreferenceCellDelegate!
     // MARK: - Private Properties
     private let genderPreferenceLabel: UILabel = {
         let label = UILabel()
@@ -22,12 +22,13 @@ class GenderPreferenceCell: UITableViewCell {
         return label
     }()
     
-    private let genderPreferenceButton: UIButton = {
+    let genderPreferenceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Female", for: .normal)
         button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
         button.setTitleColor(UIColor(hex: "000000"), for: .normal)
         button.contentHorizontalAlignment = .right
+        button.addTarget(self, action: #selector(genderBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -80,4 +81,13 @@ class GenderPreferenceCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-24)
         }
     }
+    
+    @objc func genderBtnTapped() {
+        genderBtnDelegate?.didGenderBtnTapped()
+    }
+}
+
+//MARK: - GenderPreferenceCellDelegate
+protocol GenderPreferenceCellDelegate {
+    func didGenderBtnTapped()
 }
