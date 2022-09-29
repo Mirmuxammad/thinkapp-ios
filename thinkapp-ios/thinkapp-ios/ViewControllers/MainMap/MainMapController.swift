@@ -15,7 +15,9 @@ class MainMapController: UIViewController, Routable {
     var router: MainRouter?
     
     var mapMarks: [MapMarkResponce] = []
-    
+    var searchMarks: [MapMarkResponce] = []
+    var usrLat : Double = 0
+    var usrLng : Double = 0
     private let customMarker: CustomAnnotationView = CustomAnnotationView()
     
     private let baseView: MainMapView = MainMapView()
@@ -31,22 +33,23 @@ class MainMapController: UIViewController, Routable {
         baseView.backAddTarget(target: self, action: #selector(back))
         baseView.filtersAddTarget(target: self, action: #selector(getFilters))
         baseView.addMarkAddTarget(target: self, action: #selector(addMark))
-        
+        baseView.refreshAddTarget(target: self, action: #selector(refreshBtn))
         
         baseView.mapView.delegate = self
         baseView.mapView.isMyLocationEnabled = true
-        
+        locationManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillLayoutSubviews()
+        super.viewWillAppear(animated)
         getMapMarks()
+        
     }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         baseView.frame = view.bounds
         view.addSubview(baseView)
+        searchMapMarks()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,6 +67,10 @@ class MainMapController: UIViewController, Routable {
     
     @objc private func addMark() {
         router?.pushAddMark()
+    }
+    
+    @objc private func refreshBtn() {
+        searchMapMarks()
     }
     
     private func checkLocationEnabled() {
@@ -164,18 +171,44 @@ class MainMapController: UIViewController, Routable {
             CLLocationCoordinate2D(latitude: 37.6173, longitude: 56.7558),
             CLLocationCoordinate2D(latitude: 37.6173, longitude: 57.7558)
         ]
-        
+
         for coordintate in coordintates {
-            
             let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
             customMark.layer.cornerRadius = 5
             customMark.backgroundColor = .white
-            
-            
             let marker = GMSMarker()
             marker.position = coordintate
             marker.map = baseView.mapView
-            
+            customMark.contenerViwe.layer.cornerRadius = 5
+            marker.iconView = customMark
+        }
+    }
+    
+    private func searchMapMarks() {
+        baseView.activityIndicator.startAnimating()
+        MapAPI.searchMarks(location: Location(lat: usrLat, lon: usrLng), gender: nil, ageFrom: nil, ageMin: nil, maxDisatance: 100) { data in
+            self.searchMarks = data
+            self.baseView.activityIndicator.startAnimating()
+            self.addsearchPlaceMarkers()
+        } failture: { eror in
+            print(eror)
+        }
+    }
+    
+    private func addsearchPlaceMarkers() {
+        var coordintates: [CLLocationCoordinate2D] = []
+        for i in searchMarks {
+            let lat = i.location.lat
+            let lon = i.location.lon
+            coordintates.append(CLLocationCoordinate2D(latitude: lat, longitude: lon))
+        }
+        for coordintate in coordintates {
+            let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
+            customMark.layer.cornerRadius = 5
+            customMark.backgroundColor = .white
+            let marker = GMSMarker()
+            marker.position = coordintate
+            marker.map = baseView.mapView
             customMark.contenerViwe.layer.cornerRadius = 5
             marker.iconView = customMark
         }
@@ -226,8 +259,14 @@ extension MainMapController: GMSMapViewDelegate {
 extension MainMapController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last?.coordinate {
-            let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 10.0)
-            baseView.mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+            usrLat = location.latitude
+            usrLng = location.longitude
+            
+            UserDefaultsService.sharedInstance.userLat = location.latitude
+            UserDefaultsService.sharedInstance.userLat = location.longitude
+            
+            let camera = GMSCameraPosition.camera(withLatitude: usrLat, longitude: usrLng, zoom: 10.0)
+            self.baseView.mapView.camera = camera
         }
         self.showCurrentLocationOnMap()
         self.locationManager.stopUpdatingLocation()

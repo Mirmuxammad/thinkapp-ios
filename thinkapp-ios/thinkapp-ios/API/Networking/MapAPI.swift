@@ -63,6 +63,37 @@ final class MapAPI {
         }
     }
     
+    static func searchMarks(location: Location, gender: String?, ageFrom: Double?, ageMin: Double?, maxDisatance: Double, success: @escaping ([MapMarkResponce]) -> Void, failture: @escaping escapeNetworkError) {
+        let params: Parameters = [
+            "location": [
+                "lat": location.lat,
+                "lon": location.lon,
+            ],
+            "gender": gender,
+            "age_from": ageFrom,
+            "age_min": ageMin,
+            "max_distance": maxDisatance
+        ]
+        
+        BaseAPI.unAuthorizedPostRequest(reqMethod: .searchMark, parameters: params) { data in
+            guard let data = data else { return }
+            let jsonData = JSON(data)
+            let errors = jsonData["errors"]
+            if errors.type == .null {
+                var searchMarks = [MapMarkResponce]()
+                for mark in jsonData["data"].arrayValue {
+                    searchMarks.append(MapMarkResponce(id: mark["id"].intValue, user: User(id: mark["user"]["id"].intValue, name: mark["user"]["name"].stringValue, online: mark["user"]["online"].boolValue), location: Location(lat: mark["location"]["lat"].doubleValue, lon: mark["location"]["lon"].doubleValue), age: mark["age"].stringValue, gender: mark["gender"].stringValue, text: mark["text"].stringValue))
+                }
+                success(searchMarks)
+            } else {
+                failture(NetworkError(.other(errors.stringValue)))
+            }
+        } failure: { error in
+            failture(error)
+
+        }
+    }
+    
     
 }
 

@@ -13,8 +13,8 @@ class MainMapView: UIView {
     
     var mapView: GMSMapView = {
         var map = GMSMapView()
-        let camera = GMSCameraPosition.camera(withLatitude: 37.6173, longitude: 55.7558, zoom: 10.0)
-        map = GMSMapView.map(withFrame: .zero, camera: camera)
+//        let camera = GMSCameraPosition.camera(withLatitude: 37.6173, longitude: 55.7558, zoom: 10.0)
+//        map = GMSMapView.map(withFrame: .zero, camera: camera)
         return map
     }()
     
@@ -82,6 +82,10 @@ class MainMapView: UIView {
     
     func backAddTarget(target: Any, action: Selector) {
         backButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func refreshAddTarget(target: Any, action: Selector) {
+        refreshButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     func filtersAddTarget(target: Any, action: Selector) {

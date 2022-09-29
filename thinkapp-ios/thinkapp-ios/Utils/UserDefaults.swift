@@ -13,6 +13,8 @@ class UserDefaultsService {
 
     private enum Keys {
         static let authToken = "authToken"
+        static let userLat = "userLat"
+        static let userLon = "userLon"
     }
 
     func removeAuthToken() {
@@ -26,6 +28,26 @@ class UserDefaultsService {
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: Keys.authToken)
+        }
+    }
+    
+    var userLat: Double? {
+        get {
+            let userLat = UserDefaults.standard.value(forKey: Keys.userLat) as? Double
+            return userLat ?? nil
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Keys.userLat)
+        }
+    }
+    
+    var userLon: Double? {
+        get {
+            let userLon = UserDefaults.standard.value(forKey: Keys.userLon) as? Double
+            return userLon ?? nil
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Keys.userLon)
         }
     }
 }
