@@ -64,6 +64,7 @@ final class LoginAPI {
             let errors = jsonData["errors"]
             if errors.type == .null {
                 success(jsonData["result"])
+                UserDefaultsService.sharedInstance.authToken = token
             } else {
                 failture(NetworkError(.other(errors.stringValue)))
             }
