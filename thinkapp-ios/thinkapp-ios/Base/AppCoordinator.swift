@@ -33,12 +33,11 @@ class AppCoordinator: NSObject {
         
         let navController = UINavigationController()
         router = MainRouter(navigationController: navController)
-        if UserDefaults.standard.value(forKey: "authToken") == nil {
-            router?.pushLogin()
-        } else {
+        
+        if let _ = UserDefaultsService.sharedInstance.authToken {
             router?.pushMainMap()
-            print("📍")
-            print(UserDefaults.standard.value(forKey: "authToken"))
+        } else {
+            router?.pushLogin()
         }
         
         self.window.rootViewController = navController
