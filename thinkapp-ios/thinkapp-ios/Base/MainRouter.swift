@@ -72,4 +72,11 @@ class MainRouter: NSObject {
     func back() {
         navigationController.popViewController(animated: true)
     }
+    
+    func startSearch(gender: String?, maxDistance: Double?, ageFrom: Double?, ageTo: Double?) {
+        let vc = MainMapController(gender: gender,
+                                   ageFrom: ageFrom, ageTo: ageTo, maxDistance: maxDistance ?? 100)
+        vc.router = self
+        navigationController.setViewControllers([vc], animated: true)
+    }
 }

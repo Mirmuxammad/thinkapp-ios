@@ -149,7 +149,7 @@ extension AddMarkViewController: UITableViewDataSource {
             addMarkCell.mapView.delegate = self
             mapView = addMarkCell.mapView
             addMarkCell.genderBtnDelegate = self
-            addMarkCell.genderPreferenceButton.setTitle(userGender.rawValue, for: .normal)
+            addMarkCell.genderPreferenceButton.setTitle(userGender.title, for: .normal)
             addMarkCell.plusAddTarget(target: self, action: #selector(back))
             return addMarkCell
         
@@ -157,15 +157,15 @@ extension AddMarkViewController: UITableViewDataSource {
             let maxDistanceCell = tableView.dequeueReusableCell(withIdentifier: MaxDistanceCell.identifier,
                                                                 for: indexPath) as! MaxDistanceCell
             maxDistanceCell.maxDistanceSlider.delegate = self
-            maxDistanceButton = maxDistanceCell.maxDistanceButton
+            //maxDistanceButton = maxDistanceCell.maxDistanceButton
             return maxDistanceCell
         
         case .AgeRange:
             let ageRangeCell = tableView.dequeueReusableCell(withIdentifier: AgeRangeCell.identifier,
                                                              for: indexPath) as! AgeRangeCell
             ageRangeCell.ageRangeSlider.delegate = self
-            ageRangeButton = ageRangeCell.ageRangeButton
-            ageRangeCell.ageRangeLabel.text = "You Age"
+            //ageRangeButton = ageRangeCell.ageRangeButton
+            //ageRangeCell.ageRangeLabel.text = "You Age"
             ageRangeCell.ageRangeSlider.defaultValueLeftKnob = 0
             ageRangeCell.ageRangeSlider.scaleMinValue = 0
 //            ageRangeCell.ageRangeSlider.leftKnobImage = nil

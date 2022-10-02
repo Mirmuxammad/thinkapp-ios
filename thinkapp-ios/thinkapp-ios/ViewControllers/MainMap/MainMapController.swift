@@ -18,11 +18,30 @@ class MainMapController: UIViewController, Routable {
     var searchMarks: [MapMarkResponce] = []
     var usrLat : Double = 0
     var usrLng : Double = 0
+    var gender : String?
+    var ageFrom: Double?
+    var ageTo: Double?
+    var maxDistance: Double = 100
     private let customMarker: CustomAnnotationView = CustomAnnotationView()
     private let baseView: MainMapView = MainMapView()
     private let locationManager = CLLocationManager()
     
     private var showMarker: Bool = true
+    
+    init(gender: String? = nil,
+         ageFrom: Double? = nil,
+         ageTo: Double? = nil,
+         maxDistance: Double = 100) {
+        self.gender = gender
+        self.ageFrom = ageFrom
+        self.ageTo = ageTo
+        self.maxDistance = maxDistance
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +57,7 @@ class MainMapController: UIViewController, Routable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getMapMarks()
+        //getMapMarks()
     }
     
     override func viewWillLayoutSubviews() {
@@ -160,7 +179,6 @@ class MainMapController: UIViewController, Routable {
     func showCurrentLocationOnMap() {
         baseView.mapView.settings.myLocationButton = true
         baseView.mapView.isMyLocationEnabled = true
-        baseView.mapView.clear()
         for data in mapMarks {
             let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
             customMark.layer.cornerRadius = 5
@@ -199,7 +217,7 @@ class MainMapController: UIViewController, Routable {
 //    }
     
     private func searchMapMarks() {
-            MapAPI.searchMarks(location: Location(lat: self.usrLat, lon: self.usrLng), gender: nil, ageFrom: nil, ageMin: nil, maxDisatance: 100) { data in
+        MapAPI.searchMarks(location: Location(lat: self.usrLat, lon: self.usrLng), gender: self.gender, ageFrom: self.ageFrom, ageMin: self.ageTo, maxDisatance: self.maxDistance) { data in
             self.searchMarks = data
             self.addsearchPlaceMarkers()
         } failture: { eror in
@@ -257,7 +275,8 @@ extension MainMapController: CLLocationManagerDelegate {
             let camera = GMSCameraPosition.camera(withLatitude: usrLat, longitude: usrLng, zoom: 10.0)
             self.baseView.mapView.camera = camera
         }
-        self.showCurrentLocationOnMap()
+        self.getMapMarks()
+        //self.showCurrentLocationOnMap()
         self.locationManager.stopUpdatingLocation()
     }
     

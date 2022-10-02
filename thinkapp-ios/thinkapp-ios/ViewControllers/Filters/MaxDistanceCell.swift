@@ -23,20 +23,13 @@ class MaxDistanceCell: UITableViewCell {
         return label
     }()
     
-    let maxDistanceButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("40-100 Km", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
-        button.setTitleColor(UIColor(hex: "000000"), for: .normal)
-        button.contentHorizontalAlignment = .right
-        return button
-    }()
-    
-    private let maxDistanceVectorImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "topVector")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    let rangeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "40-100 Km"
+        label.font = UIFont(name: "Inter-Medium", size: 15)
+        label.textAlignment = .right
+        label.textColor = UIColor(hex: "000000")
+        return label
     }()
     
     let maxDistanceSlider: RangeUISlider = {
@@ -45,11 +38,11 @@ class MaxDistanceCell: UITableViewCell {
         rangeSlider.translatesAutoresizingMaskIntoConstraints = false
         rangeSlider.stepIncrement = 1
         
-        rangeSlider.defaultValueLeftKnob = 40
-        rangeSlider.defaultValueRightKnob = 100
+        rangeSlider.defaultValueLeftKnob = 0
+        rangeSlider.defaultValueRightKnob = 80
         
         rangeSlider.scaleMinValue = 0
-        rangeSlider.scaleMaxValue = 250
+        rangeSlider.scaleMaxValue = 100
         
         rangeSlider.rangeSelectedColor = .clear
         rangeSlider.rangeSelectedBackgroundImage = UIImage(named: "rangeSelected")
@@ -86,8 +79,7 @@ class MaxDistanceCell: UITableViewCell {
     // MARK: - Private Methods
     private func addViews() {
         contentView.addSubview(maxDistanceLabel)
-        contentView.addSubview(maxDistanceButton)
-        contentView.addSubview(maxDistanceVectorImageView)
+        contentView.addSubview(rangeLabel)
         contentView.addSubview(maxDistanceSlider)
     }
     
@@ -100,19 +92,11 @@ class MaxDistanceCell: UITableViewCell {
             make.bottom.equalTo(maxDistanceSlider.snp.top).offset(-26)
         }
         
-        maxDistanceButton.snp.makeConstraints { make in
+        rangeLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(29)
-            make.right.equalToSuperview().offset(-51)
+            make.right.equalToSuperview().offset(-26)
             make.height.equalTo(18)
             make.bottom.equalTo(maxDistanceSlider.snp.top).offset(-26)
-        }
-        
-        maxDistanceVectorImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(28)
-            make.right.equalToSuperview().offset(-26)
-            make.width.equalTo(20)
-            make.height.equalTo(20)
-            make.bottom.equalTo(maxDistanceSlider.snp.top).offset(-25)
         }
         
         maxDistanceSlider.snp.makeConstraints { make in
