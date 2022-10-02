@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import GoogleMaps
 
-class CustomMarkerView: UIView{
+class CustomMarkerView: UIView {
     
     var mapMark: MapMarkResponce?
     
@@ -22,7 +22,7 @@ class CustomMarkerView: UIView{
     
     let onlineIndicator: UIView = {
        let view = UIView()
-        view.layer.cornerRadius = view.layer.frame.height / 2
+        view.layer.cornerRadius = 3
         view.backgroundColor = .systemGreen
         return view
     }()
@@ -102,7 +102,6 @@ class CustomMarkerView: UIView{
        
         contenerViwe.layer.cornerRadius = 5
         avatar.layer.cornerRadius = avatar.layer.frame.height / 2
-        onlineIndicator.layer.cornerRadius = onlineIndicator.layer.frame.height / 2
     }
     
     

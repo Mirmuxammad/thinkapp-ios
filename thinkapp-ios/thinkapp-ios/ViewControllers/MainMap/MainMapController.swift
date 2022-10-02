@@ -19,15 +19,11 @@ class MainMapController: UIViewController, Routable {
     var usrLat : Double = 0
     var usrLng : Double = 0
     private let customMarker: CustomAnnotationView = CustomAnnotationView()
-    
     private let baseView: MainMapView = MainMapView()
-    
     private let locationManager = CLLocationManager()
     
     private var showMarker: Bool = true
     
-    
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         baseView.backAddTarget(target: self, action: #selector(back))
@@ -43,13 +39,12 @@ class MainMapController: UIViewController, Routable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getMapMarks()
-        
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         baseView.frame = view.bounds
         view.addSubview(baseView)
-        searchMapMarks()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,7 +65,7 @@ class MainMapController: UIViewController, Routable {
     }
     
     @objc private func refreshBtn() {
-        searchMapMarks()
+        self.getMapMarks()
     }
     
     private func checkLocationEnabled() {
@@ -129,69 +124,17 @@ class MainMapController: UIViewController, Routable {
     }
     
     private func getMapMarks() {
-        baseView.activityIndicator.startAnimating()
+        //baseView.activityIndicator.startAnimating()
         MapAPI.getMapMarker { [weak self] jsonData in
             self?.mapMarks = jsonData
             self?.showCurrentLocationOnMap()
-            self?.baseView.activityIndicator.stopAnimating()
+            self?.searchMapMarks()
+          //  self?.baseView.activityIndicator.stopAnimating()
         } failure: { error in
             let alert = UIAlertController(title: "Ошибка", message: error?.message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             }))
             self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func showCurrentLocationOnMap(){
-        baseView.mapView.settings.myLocationButton = true
-        baseView.mapView.isMyLocationEnabled = true
-        
-        for data in mapMarks {
-            
-            let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
-            customMark.layer.cornerRadius = 5
-            customMark.backgroundColor = .white
-            customMark.mapMark = data
-            
-            let location = CLLocationCoordinate2D(latitude: data.location.lat, longitude: data.location.lon)
-            
-            
-            let marker = GMSMarker()
-            marker.position = location
-            
-            marker.iconView = customMark
-            marker.map = baseView.mapView
-            
-        }
-        addPlaceMarkers()
-    }
-    private func addPlaceMarkers() {
-        let coordintates: [CLLocationCoordinate2D] = [
-            CLLocationCoordinate2D(latitude: 37.6173, longitude: 55.7558),
-            CLLocationCoordinate2D(latitude: 37.6173, longitude: 56.7558),
-            CLLocationCoordinate2D(latitude: 37.6173, longitude: 57.7558)
-        ]
-
-        for coordintate in coordintates {
-            let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
-            customMark.layer.cornerRadius = 5
-            customMark.backgroundColor = .white
-            let marker = GMSMarker()
-            marker.position = coordintate
-            marker.map = baseView.mapView
-            customMark.contenerViwe.layer.cornerRadius = 5
-            marker.iconView = customMark
-        }
-    }
-    
-    private func searchMapMarks() {
-        baseView.activityIndicator.startAnimating()
-        MapAPI.searchMarks(location: Location(lat: usrLat, lon: usrLng), gender: nil, ageFrom: nil, ageMin: nil, maxDisatance: 100) { data in
-            self.searchMarks = data
-            self.baseView.activityIndicator.startAnimating()
-            self.addsearchPlaceMarkers()
-        } failture: { eror in
-            print(eror)
         }
     }
     
@@ -214,7 +157,56 @@ class MainMapController: UIViewController, Routable {
         }
     }
     
+    func showCurrentLocationOnMap() {
+        baseView.mapView.settings.myLocationButton = true
+        baseView.mapView.isMyLocationEnabled = true
+        baseView.mapView.clear()
+        for data in mapMarks {
+            let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
+            customMark.layer.cornerRadius = 5
+            customMark.backgroundColor = .white
+            customMark.mapMark = data
+            
+            let location = CLLocationCoordinate2D(latitude: data.location.lat, longitude: data.location.lon)
+            
+            let marker = GMSMarker()
+            marker.position = location
+            
+            marker.iconView = customMark
+            marker.map = baseView.mapView
+            
+        }
+        //addPlaceMarkers()
+    }
     
+//    private func addPlaceMarkers() {
+//        let coordintates: [CLLocationCoordinate2D] = [
+//            CLLocationCoordinate2D(latitude: 37.6173, longitude: 55.7558),
+//            CLLocationCoordinate2D(latitude: 37.6173, longitude: 56.7558),
+//            CLLocationCoordinate2D(latitude: 37.6173, longitude: 57.7558)
+//        ]
+//
+//        for coordintate in coordintates {
+//            let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
+//            customMark.layer.cornerRadius = 5
+//            customMark.backgroundColor = .white
+//            let marker = GMSMarker()
+//            marker.position = coordintate
+//            marker.map = baseView.mapView
+//            customMark.contenerViwe.layer.cornerRadius = 5
+//            marker.iconView = customMark
+//        }
+//    }
+    
+    private func searchMapMarks() {
+            MapAPI.searchMarks(location: Location(lat: self.usrLat, lon: self.usrLng), gender: nil, ageFrom: nil, ageMin: nil, maxDisatance: 100) { data in
+            self.searchMarks = data
+            self.addsearchPlaceMarkers()
+        } failture: { eror in
+            debugPrint("searchMapMarks failed!!!")
+            print(eror)
+        }
+    }
 }
 
 extension MainMapController: GMSMapViewDelegate {
@@ -247,15 +239,12 @@ extension MainMapController: GMSMapViewDelegate {
     }
     
     func mapView( _ mapView: GMSMapView, markerInfoContents marker: GMSMarker ) -> UIView? {
-        
        let infoView = CustomAnnotationView(frame: CGRect(x: 0, y: 0, width: 157, height: 195))
-
-        
-
         return infoView
     }
     
 }
+
 extension MainMapController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last?.coordinate {

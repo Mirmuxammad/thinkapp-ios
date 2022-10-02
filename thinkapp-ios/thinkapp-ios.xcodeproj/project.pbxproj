@@ -70,7 +70,7 @@
 		04820AFB28D4AB8A008F0720 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		04DE246628D9B4DF00B8E6F4 /* MeChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeChatCell.swift; sourceTree = "<group>"; };
 		04DE246828D9B4EA00B8E6F4 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		04F1156A28E31F9700F5283F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../var/folders/wz/x08kg5ys547c25x_y5g_8hlc0000gq/T/ru.keepcoder.Telegram/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04F1156A28E31F9700F5283F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04F1156C28E320A500F5283F /* ChatVideoPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVideoPreview.swift; sourceTree = "<group>"; };
 		04F1156D28E320A500F5283F /* ChatPhotoPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPhotoPreview.swift; sourceTree = "<group>"; };
 		04F1157028E320B000F5283F /* WelcomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
@@ -123,6 +123,7 @@
 		E08B3CDF28BE39FC00140D22 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E08B3CE128BE3A0B00140D22 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E0B16A4428DA1D740023228C /* thinkapp-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "thinkapp-ios.entitlements"; sourceTree = "<group>"; };
+		E70158FB28E87356001A3902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +277,7 @@
 		E014D7EB28BE19380079FEFB /* thinkapp-ios */ = {
 			isa = PBXGroup;
 			children = (
+				E70158FB28E87356001A3902 /* Info.plist */,
 				E0B16A4428DA1D740023228C /* thinkapp-ios.entitlements */,
 				400BC44A28D47B5400F42081 /* Utils */,
 				400BC44328D4767D00F42081 /* API */,
@@ -678,10 +680,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H83SG7N4Z9;
+				DEVELOPMENT_TEAM = "";
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "thinkapp-ios/Base/Info.plist";
+				INFOPLIST_FILE = "thinkapp-ios/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To determine the location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -715,10 +717,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H83SG7N4Z9;
+				DEVELOPMENT_TEAM = "";
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "thinkapp-ios/Base/Info.plist";
+				INFOPLIST_FILE = "thinkapp-ios/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To determine the location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
