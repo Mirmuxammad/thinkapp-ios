@@ -86,7 +86,7 @@ class MainMapController: UIViewController, Routable {
     @objc private func refreshBtn() {
 //        self.getMapMarks()
         self.baseView.mapView.clear()
-        self.searchMapMarks(gender: nil, ageFrom: 0, ageTo: 100, maxDistance: 100)
+        self.searchMapMarks(gender: self.gender, ageFrom: self.ageFrom, ageTo: self.ageTo, maxDistance: self.maxDistance)
     }
     
     private func checkLocationEnabled() {
@@ -166,12 +166,12 @@ class MainMapController: UIViewController, Routable {
             let lon = i.location.lon
             coordintates.append(CLLocationCoordinate2D(latitude: lat, longitude: lon))
         }
-        for coordintate in coordintates {
+        for coordintate in coordintates.enumerated() {
             let customMark = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
             customMark.layer.cornerRadius = 5
             customMark.backgroundColor = .white
             let marker = GMSMarker()
-            marker.position = coordintate
+            marker.position = coordintate.element
             marker.map = baseView.mapView
             customMark.contenerViwe.layer.cornerRadius = 5
             marker.iconView = customMark
@@ -236,7 +236,8 @@ extension MainMapController: GMSMapViewDelegate {
         let markerInfoViewNotText = CustomAnnotationView(frame: CGRect(x: 0, y: 0, width: 157, height: 100))
         let markerInfo = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 53, height: 90))
         if showMarker == true {
-            UIView.animate(withDuration: 1) {
+            marker.zIndex = 1
+            UIView.animate(withDuration: 0) {
                 if markerInfo.mapMark?.text == "" {
                     markerInfoView.addConstraints()
                     markerInfo.mapMark = markerInfoView.markInfo
@@ -248,16 +249,19 @@ extension MainMapController: GMSMapViewDelegate {
                 }
             }
         } else {
-            UIView.animate(withDuration: 1) {
+            marker.zIndex = 0
+            UIView.animate(withDuration: 0) {
                 markerInfoView.markInfo = markerInfo.mapMark
                 marker.iconView = markerInfo
                 marker.iconView?.backgroundColor = .white
             }
         }
-        showMarker = !showMarker
+//        showMarker = !showMarker
         return true
     }
-    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+//        self.showMarker = false
+    }
     func mapView( _ mapView: GMSMapView, markerInfoContents marker: GMSMarker ) -> UIView? {
        let infoView = CustomAnnotationView(frame: CGRect(x: 0, y: 0, width: 157, height: 195))
         return infoView
