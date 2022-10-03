@@ -84,7 +84,9 @@ class MainMapController: UIViewController, Routable {
     }
     
     @objc private func refreshBtn() {
-        self.getMapMarks()
+//        self.getMapMarks()
+        self.baseView.mapView.clear()
+        self.searchMapMarks(gender: nil, ageFrom: 0, ageTo: 100, maxDistance: 100)
     }
     
     private func checkLocationEnabled() {
@@ -147,7 +149,7 @@ class MainMapController: UIViewController, Routable {
         MapAPI.getMapMarker { [weak self] jsonData in
             self?.mapMarks = jsonData
             self?.showCurrentLocationOnMap()
-            self?.searchMapMarks()
+            self?.searchMapMarks(gender: self?.gender, ageFrom: self?.ageFrom, ageTo: self?.ageFrom, maxDistance: self?.maxDistance)
           //  self?.baseView.activityIndicator.stopAnimating()
         } failure: { error in
             let alert = UIAlertController(title: "Ошибка", message: error?.message, preferredStyle: .alert)
@@ -216,8 +218,8 @@ class MainMapController: UIViewController, Routable {
 //        }
 //    }
     
-    private func searchMapMarks() {
-        MapAPI.searchMarks(location: Location(lat: self.usrLat, lon: self.usrLng), gender: self.gender, ageFrom: self.ageFrom, ageMin: self.ageTo, maxDisatance: self.maxDistance) { data in
+    private func searchMapMarks(gender: String?, ageFrom: Double?, ageTo: Double?, maxDistance: Double?) {
+        MapAPI.searchMarks(location: Location(lat: self.usrLat, lon: self.usrLng), gender: gender, ageFrom: ageFrom, ageMin: ageTo, maxDisatance: maxDistance ?? 0) { data in
             self.searchMarks = data
             self.addsearchPlaceMarkers()
         } failture: { eror in
@@ -284,3 +286,4 @@ extension MainMapController: CLLocationManagerDelegate {
         
     }
 }
+
